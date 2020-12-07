@@ -1,0 +1,493 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+
+@{
+    bool IsSuperAdmin = User.IsInRole("Super Admin");
+
+}
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Sofwena ERP</title>
+
+    <!-- Custom fonts for this template-->
+    @*<link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">*@
+    <link href="~/assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <!-- Custom styles for this page -->
+    <link href="~/assets/vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+
+    <!-- Custom styles for this template-->
+    <link href="~/assets/css/sb-admin-2.min.css" rel="stylesheet">
+
+    <link href="~/assets/css/Custom.css" rel="stylesheet">
+
+
+    <!-- Bootstrap core JavaScript-->
+    <script src="~/assets/vendor/jquery/jquery.min.js"></script>
+    <script src="~/assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+
+    <!-- Core plugin JavaScript-->
+    <script src="~/assets/vendor/jquery-easing/jquery.easing.min.js"></script>
+
+    <!-- Custom scripts for all pages-->
+    <script src="~/assets/js/sb-admin-2.min.js"></script>
+
+    <script src="~/assets/vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="~/assets/vendor/datatables/dataTables.bootstrap4.min.js"></script>
+
+    <!-- Page level custom scripts -->
+    <script src="~/assets/js/demo/datatables-demo.js"></script>
+
+    <script src="~/Scripts/Global.js"></script>
+    <script src="~/Scripts/functions.js"></script>
+
+    <script src="~/Scripts/bootbox.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/js/toastr.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,600,700,800' rel='stylesheet' type='text/css'>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/2.0.1/css/toastr.css" rel="stylesheet" />
+
+    <link href="~/assets/css/morris.css" rel="stylesheet">
+    <script src="~/Scripts/raphael.js"></script>
+    <script src="~/Scripts/morris.min.js"></script>
+
+
+</head>
+
+<body id="page-top">
+
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="~/Home/Index">
+                <div>
+                    <img src="~/assets/img/sofwena.png" class="circle mr-3" width="150">
+                    <i>
+                        <img src="~/assets/img/sofwena image1.png" class="circle mr-3" width="20">
+                    </i>
+                </div>
+                @*<div class="sidebar-brand-text mx-3">Sofwena Erp</div>*@
+            </a>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Dashboard -->
+            <li class="nav-item">
+                <a class="nav-link" href="~/Home/Index">
+                    <i class="fas fa-fw fa-tachometer-alt"></i>
+                    <span>Dashboard</span>
+                </a>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Setting
+            </div>
+
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                    <i class="fas fa-cogs"></i>
+                    <span>GENERAL SETTINGS</span>
+                </a>
+                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">General:</h6>
+                        <a class="collapse-item" title="Company" href="@Url.Action("Index","Organisation", new { area="GeneralManagement"})">Company</a>
+                        <a class="collapse-item" title="FiscalYear" href="@Url.Action("Index","FiscalYear", new { area="GeneralManagement"})">FiscalYear</a>
+                        <a class="collapse-item" title="VAT" href="@Url.Action("Index","Settings", new { area="GeneralManagement"})">VAT / Service Charge</a>
+                        @*<a class="collapse-item" title="User" href="@Url.Action("Index","Role", new { area="UserManagement"})">Role</a>*@
+                        <a class="collapse-item" title="User" href="@Url.Action("Index","Account", new { area=""})">User</a>
+                        <a class="collapse-item" title="Role Management" href="@Url.Action("Index","RoleManagement", new { area="GeneralManagement"})">Role Management</a>
+                        <a class="collapse-item" title="Agents" href="@Url.Action("Index","Agents", new { area="GeneralManagement"})">Agents</a>
+                        <a class="collapse-item" title="Department" href="@Url.Action("Index","Department", new { area="GeneralManagement"})">Department</a>
+                        <a class="collapse-item" title="Designation" href="@Url.Action("Index","Designation", new { area="GeneralManagement"})">Designation</a>
+                        <a class="collapse-item" title="Earnings" href="@Url.Action("Index","Earnings", new { area="GeneralManagement"})">Earnings</a>
+                        <a class="collapse-item" title="Deductions" href="@Url.Action("Index","Deductions", new { area="GeneralManagement"})">Deductions</a>
+                        <a class="collapse-item" title="Points" href="@Url.Action("Index","WorkingPoints", new { area="GeneralManagement"})">Working Points</a>
+                        <a class="collapse-item" title="Shift" href="@Url.Action("Index","Shift", new { area="GeneralManagement"})">Shift</a>
+
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                HR  Module
+            </div>
+
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseHR" aria-expanded="true" aria-controls="collapseHR">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>HR Management</span>
+                </a>
+                <div id="collapseHR" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">HR Screens:</h6>
+                        <a class="collapse-item" href="login.html">Dashboard</a>
+                        <a class="collapse-item" title="FiscalYear" href="@Url.Action("Index","Employee", new { area="HRManagement"})">Employee</a>
+                        <a class="collapse-item" href="register.html">Attendance</a>
+                        <a class="collapse-item" title="FiscalYear" href="@Url.Action("Index","LeaveApplication", new { area="HRManagement"})">Leave Management</a>
+                        <a class="collapse-item" href="forgot-password.html">O.T Management</a>
+                        <a class="collapse-item" title="FiscalYear" href="@Url.Action("Index","PaySlip", new { area="HRManagement"})">Pay Slips</a>
+
+                    </div>
+                </div>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Ticketing  Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTC" aria-expanded="true" aria-controls="collapseTC">
+                    <i class="fas fa-ticket-alt "></i>
+                    <span>Ticketing</span>
+                </a>
+                <div id="collapseTC" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Ticketing Screens:</h6>
+                        <a class="collapse-item" href="login.html">Dashboard</a>
+                        <a class="collapse-item" title="Category Management" href="@Url.Action("Index","Category", new { area="TicketingManagement"})">Category Management</a>
+                        <a class="collapse-item" title="Package Management" href="@Url.Action("Index","Package", new { area="TicketingManagement"})">Package Management</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("Index","TicketRate", new { area="TicketingManagement"})">Price Management</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("Index","Station", new { area="TicketingManagement"})">Billings Point</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("Index","CounterSettlement", new { area="TicketingManagement"})">Counter Settlements</a>
+
+                        <a class="collapse-header" href="forgot-password.html">REPORTS</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("Index","Report", new { area="TicketingManagement"})">Sale Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("SalesSummary","Report", new { area="TicketingManagement"})">Summary Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("PackageReport","Report", new { area="TicketingManagement"})">Package based Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("CategoryReport","Report", new { area="TicketingManagement"})">Category based Report</a>
+
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("DiscountReport","Report", new { area="TicketingManagement"})">Discount Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("ComplementaryReport","Report", new { area="TicketingManagement"})">Complementary Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("ItemBasedReport","Report", new { area="TicketingManagement"})">Item Based Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("AgentReport","Report", new { area="TicketingManagement"})">Agents Report</a>
+                        <a class="collapse-item" title="Billings Points" href="@Url.Action("CounterSettlementReport","Report", new { area="TicketingManagement"})">CounterSettlement Report</a>
+
+
+                    </div>
+                </div>
+            </li>
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Inventory  Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseIV" aria-expanded="true" aria-controls="collapseIV">
+                    <i class="fas fa-fw fa-warehouse "></i>
+                    <span>Inventory</span>
+                </a>
+                <div id="collapseIV" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Inventory Screens:</h6>
+                        <a class="collapse-header" aria-expanded="true" href="forgot-password.html">REPORTS</a>
+                        <a class="collapse-item" href="forgot-password.html">Dashboard</a>
+
+                        <a class="collapse-item" href="forgot-password.html">Sale Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Purchase Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Void Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Stock Allocation Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Department Stock Transfer</a>
+                        <a class="collapse-item" href="forgot-password.html">Sales/Purchase Return Report</a>
+                        <a class="collapse-item" href="forgot-password.html">PO/Requisition Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Stock Report</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Account  Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseAcc" aria-expanded="true" aria-controls="collapseAcc">
+                    <i class="fas fa-file fa-file-invoice">
+
+                    </i>
+                    <span>Account</span>
+                </a>
+                <div id="collapseAcc" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Account Screens:</h6>
+                        <a class="collapse-header" aria-expanded="true" href="forgot-password.html">REPORTS</a>
+                        <a class="collapse-item" href="forgot-password.html">Dashboard</a>
+                        <a class="collapse-item" href="forgot-password.html">Group Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Ledger Summary Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Day Book Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Cash Flow Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Payable/Receivable Transfer</a>
+                        <a class="collapse-item" href="forgot-password.html">BalanceSheet Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Profit/Loss A/C Report</a>
+                    </div>
+                </div>
+            </li>
+
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Restaurant  Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseR" aria-expanded="true" aria-controls="collapseR">
+                    <i class="fas fa-utensils "></i>
+                    <span>Restaurant</span>
+                </a>
+                <div id="collapseR" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Restaurant Screens:</h6>
+                        <a class="collapse-header" aria-expanded="true" href="forgot-password.html">REPORTS</a>
+                        <a class="collapse-item" href="forgot-password.html">Dashboard</a>
+
+                        <a class="collapse-item" href="forgot-password.html">Sales Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Sales Summary Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Menu Sales</a>
+                        <a class="collapse-item" href="forgot-password.html">Item Sales Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Agent Sales</a>
+                        <a class="collapse-item" href="forgot-password.html">Void Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Stock Allocation Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Complementory Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Discount Report</a>
+
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Web Reporting  Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseWeb" aria-expanded="true" aria-controls="collapseWeb">
+                    <i class="fas fa-fw fa-hand-paper "></i>
+                    <span>Web Reporting</span>
+                </a>
+                <div id="collapseWeb" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Web Reporting Screens:</h6>
+                        <a class="collapse-header" aria-expanded="true" href="forgot-password.html">REPORTS</a>
+                        <a class="collapse-item" href="forgot-password.html">Dashboard</a>
+
+                        <a class="collapse-item" href="forgot-password.html">Booking Report</a>
+                        <a class="collapse-item" href="forgot-password.html">Sales Summary Report</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider">
+            <!-- Heading -->
+            <div class="sidebar-heading">
+                Settings Module
+            </div>
+            <!-- Nav Item - Pages Collapse Menu -->
+            <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSet" aria-expanded="true" aria-controls="collapseSet">
+                    <i class="fas fa-tools"></i>
+                    <span>Settings</span>
+                </a>
+                <div id="collapseSet" class="collapse" aria-labelledby="headingPages" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Settings Screens:</h6>
+                        <a class="collapse-item" href="forgot-password.html">Account Mapping</a>
+                        <a class="collapse-item" href="forgot-password.html">IRD Credentials</a>
+                        <a class="collapse-item" href="forgot-password.html">Module Management</a>
+                    </div>
+                </div>
+            </li>
+
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+            @*<a href="#" id="sidebarToggle">content</a>*@
+            <div class="clearfix"></div>
+            <!-- Sidebar Toggler (Sidebar) -->
+            @*<div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>*@
+        </ul>
+        <div class="clearfix"></div>
+        <!-- End of Sidebar -->
+        <!-- Content Wrapper -->
+        <div id="content-wrapper" class="d-flex flex-column">
+
+            <!-- Main Content -->
+            <div id="content">
+
+                <!-- Topbar -->
+                <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                    <!-- Sidebar Toggle (Topbar) -->
+                    <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                        <i class="fa fa-bars"></i>
+                    </button>
+
+                    <!-- Topbar Search -->
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                        <div class="input-group">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                            <div class="input-group-append">
+                                <button class="btn btn-primary" type="button">
+                                    <i class="fas fa-search fa-sm"></i>
+                                </button>
+                            </div>
+                        </div>
+                    </form>
+
+                    <!-- Topbar Navbar -->
+                    <ul class="navbar-nav ml-auto">
+
+                        <!-- Nav Item - Search Dropdown (Visible Only XS) -->
+                        <li class="nav-item dropdown no-arrow d-sm-none">
+                            <a class="nav-link dropdown-toggle" href="#" id="searchDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <i class="fas fa-search fa-fw"></i>
+                            </a>
+                            <!-- Dropdown - Messages -->
+                            <div class="dropdown-menu dropdown-menu-right p-3 shadow animated--grow-in" aria-labelledby="searchDropdown">
+                                <form class="form-inline mr-auto w-100 navbar-search">
+                                    <div class="input-group">
+                                        <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
+                                        <div class="input-group-append">
+                                            <button class="btn btn-primary" type="button">
+                                                <i class="fas fa-search fa-sm"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </li>
+
+                        <div class="topbar-divider d-none d-sm-block"></div>
+
+                        <!-- Nav Item - User Information -->
+                        <li class="nav-item dropdown no-arrow">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                    @Session["userName"]
+                                    @*Valerie Luna*@
+                                </span>
+                                <img class="img-profile rounded-circle" src="~/assets/img/sofwena image1.png">
+                            </a>
+                            <!-- Dropdown - User Information -->
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
+                                <a class="dropdown-item" href="~/Home/Profile">
+                                    <i class="fas fa-user fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Profile
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-cogs fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Settings
+                                </a>
+                                <a class="dropdown-item" href="#">
+                                    <i class="fas fa-list fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Activity Log
+                                </a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="~/Home/LogOff">
+                                    <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+                                    Logout
+                                </a>
+                            </div>
+                        </li>
+                    </ul>
+
+                </nav>
+                <!-- End of Topbar -->
+                <!-- Begin Page Content -->
+                <div class="container-fluid">
+
+                    @RenderBody()
+                    @Html.Partial("_PopupModals")
+
+                </div>
+
+            </div>
+            <!-- End of Main Content -->
+            <!-- Footer -->
+            <footer class="sticky-footer bg-white">
+                <div class="container my-auto">
+                    <div class="copyright text-center my-auto">
+                        <span>Copyright &copy; Your Website 2020</span>
+                    </div>
+                </div>
+            </footer>
+            <!-- End of Footer -->
+
+        </div>
+        <!-- End of Content Wrapper -->
+    </div>
+    <!-- End of Page Wrapper -->
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <!-- Logout Modal-->
+    @*<div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
+                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">×</span>
+                    </button>
+                </div>
+                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
+                <div class="modal-footer">
+                    <button class="btn btn-secondary" type="submit" data-dismiss="modal">Cancel</button>
+                    <a class="btn btn-primary" href="@Url.Action("LogOff","Account",new {Area=""})">Logout</a>
+                </div>
+            </div>
+        </div>
+    </div>*@
+
+
+
+</body>
+
+</html>

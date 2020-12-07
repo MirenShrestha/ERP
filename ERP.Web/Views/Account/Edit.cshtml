@@ -1,0 +1,69 @@
+﻿@model ERP.Core.Models.UserManagement.Register
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card shadow mb-4">
+
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Edit User</h6>
+                    </div>
+                    @using (Html.BeginForm("Edit", "Account", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Edit", "Account"), @class = "form-horizontal" }))//data-resetUrl
+                    {
+                        @Html.AntiForgeryToken()
+                        @Html.HiddenFor(model=>model.Id)
+                        
+                        <div class="card-body card-block">
+                            <div class="form-row">
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.EmployeeId, "Employee", new { @class = "form-control-label" })
+                                    @Html.DropDownListFor(model => model.EmployeeId, (SelectList)ViewBag.Employee, "--Select--", new { @class = "form-control", @disabled = "disabled" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.UserName, "User Name", new { @class = "form-control-label required" })
+                                    @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.RoleId, "Role", new { @class = "form-control-label required" })
+                                    @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.Roles, "--Select--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Email, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                </div>
+
+                            </div>
+
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success btn-lg" type="submit" id="btn-update">Update</button>
+                            <button class="btn btn-danger btn-lg" type="button" id="btn-cancel">Cancel</button>
+                        </div>
+                    }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+      $('#btn-cancel').on('click', function () {
+            CancelUpdate("@Url.Action("Register", "Account")","@Url.Action("List", "Account")");
+     });
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

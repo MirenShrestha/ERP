@@ -1,0 +1,89 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+
+                @Html.AntiForgeryToken()
+                <div class="card-body card-block">
+
+                    <div class="col-md-7 offset-md-5">
+
+                        <div class="form-inline">
+
+                            <div class="form-group">
+                                <label for="Date">From Date</label>
+                                @Html.TextBox("FromDate", "", new { @class = "form-control mx-sm-3", @id = "Fdate", @type = "date" })
+                            </div>
+
+                            <div class="form-group">
+                                <label for="Date">To Date</label>
+                                @Html.TextBox("ToDate", "", new { @class = "form-control mx-sm-3", @id = "Tdate", @type = "date" })
+                            </div>
+                            <div class="clearfix"></div>
+                            <div class="form-group">
+                                @Html.Label("Operators", "Operators", new { @class = "form-control-label" })
+                                @Html.DropDownList("Operators", (SelectList)ViewBag.TicketOperator, "--Select--", new { htmlAttributes = new { @class = "form-control mx-sm-3" } })
+
+                            </div>
+                            <button type="button" class="btn btn-primary" id="btn-search1">Search</button>
+                            @*<a href="~/ReportVIewer/TicketingManagement/SalesReport.aspx">View Report</a>*@
+
+                        </div>
+                    </div>
+                </div>
+                <div id="reportviewer" class="col-lg-12">
+                    <iframe id="frame" width="100%" onLoad="autoResize()">
+                    </iframe>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    function autoResize() {
+        $('#frame').height($('#frame').contents().height());
+    }
+
+
+    document.getElementById("btn-search1").addEventListener("click", function () {
+        var Fdate = $("#Fdate").val();
+        var Tdate = $("#Tdate").val();
+        debugger
+        var Operators = $("#Operators").val();
+        if ((Operators.length > 0) && (Fdate.length > 0 || Tdate.length>0)) {
+            var url = '@Url.Action("ReportView", "Report")';
+
+            $.ajax({
+                type: "GET",
+                url: url,
+                data: { fdate: Fdate, tdate: Tdate, operatorId: Operators },
+                success: function (response) {
+                    debugger
+                    var r = response;
+
+                    $('#frame').attr('src', response);
+                    return;
+                },
+
+                error: function (xhr, ajaxOptions, thrownError) {
+                    GlobalFunctions.GetMessage(thrownError, null, "1", 0, null, null);
+                    //alert(xhr.status);
+                    //alert(thrownError);
+                    return;
+                }
+            });
+        }
+        else {
+            GlobalFunctions.GetMessage("The Operator / Date field is required.", null, "1", 0, null, null);
+        }
+    });
+
+</script>

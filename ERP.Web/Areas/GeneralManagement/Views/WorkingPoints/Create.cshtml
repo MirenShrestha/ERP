@@ -1,0 +1,56 @@
+﻿
+@model ERP.Core.Models.GeneralManagement.WorkingPoints
+
+<div class="form">
+    <div class="card">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"> Create Working Points</h6>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "WorkingPoints", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Create", "WorkingPoints"), @class = "form-horizontal", id = "WorkingPoints-form" }))//data-resetUrl
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.Name, new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(model => model.Code, new { @class = "form-control-label" })
+                        @Html.TextBoxFor(model => model.Code, new { @class = "form-control" })
+                    </div>
+
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.IsActive, new { @class = "form-check-input", @type = "checkbox" })
+                        @Html.LabelFor(model => model.IsActive, new { @class = "form-control-label" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button class="btn btn-success btn-lg" type="submit" id="btn-submit">Save</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="btn-clear">Clear</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#btn-clear').on('click', function () {
+        GlobalFunctions.ClearForm($(this))
+    });
+
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+

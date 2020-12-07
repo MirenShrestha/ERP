@@ -1,0 +1,77 @@
+﻿
+@model ERP.Core.Models.HRManagement.PaySlipDetail
+
+<div class="row">
+
+    <div class="col-md-6">
+        <h3>Earnings </h3>
+
+        <table class="table" id="tblEarnings">
+            <thead class="table-dark">
+                <tr>
+                    <td>Earnings</td>
+                    <td>Amount</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DropDownList("Earnings", (SelectList)ViewBag.Earnings, "Select", new { @class = "form-control", @id = "earning" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Amount", "", new { @class = "form-control", @id = "earning-amount", onkeypress = "return isNumeric(event)" })
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn-AddEarning" rel="tooltip" title="Add">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" id="EarningEditBtn" rel="tooltip" title="Update" class="btn btn-info btn-sm" style="display:none;" onclick="UpdateEarningRow(this)" name="EarningEditBtn"><i class="fa fa-check-square-o"></i> </button>
+                        <button type="button" class="btn btn-danger btn-sm" id="btn-clearEarnings" rel="tooltip" title="Clear">
+                            <i class="fa fa-stop"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    <div class="col-md-6">
+        <h3>Deductions </h3>
+
+        <table class="table" id="tblDeduction">
+            <thead class="table-dark">
+                <tr>
+                    <td>Deductions</td>
+                    <td>Amount</td>
+                    <td>Action</td>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        @Html.DropDownList("Deductions", (SelectList)ViewBag.Deductions, "Select", new { @class = "form-control", @id = "deductions" })
+                    </td>
+                    <td>
+                        @Html.TextBox("Amount", "", new { @class = "form-control", @id = "deducted-amount", onkeypress = "return isNumeric(event)" })
+                    </td>
+                    <td>
+                        <button type="button" class="btn btn-primary btn-sm" id="btn-AddDeduction" rel="tooltip" title="Add">
+                            <i class="fa fa-plus"></i>
+                        </button>
+                        <button type="button" id="DeductionEditBtn" rel="tooltip" title="Update" class="btn btn-info btn-sm" style="display:none;" onclick="UpdateDeductionRow(this)" name="DeductionEditBtn"><i class="fa fa-check-square-o"></i> </button>
+                        <button type="button" class="btn btn-danger btn-sm" id="btn-clearDeductions" rel="tooltip" title="Clear">
+                            <i class="fa fa-stop"></i>
+                        </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</div>
+
+
+
+<script src="~/Scripts/App/PaySlip.js"></script>

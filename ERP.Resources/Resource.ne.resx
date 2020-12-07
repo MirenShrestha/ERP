@@ -1,0 +1,1066 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <data name="Add" xml:space="preserve">
+    <value>नयाँ</value>
+  </data>
+  <data name="Address" xml:space="preserve">
+    <value>ठेगाना</value>
+  </data>
+  <data name="Edit" xml:space="preserve">
+    <value>परिवर्तन</value>
+  </data>
+  <data name="FirstName" xml:space="preserve">
+    <value>पहिलो नाम</value>
+  </data>
+  <data name="LastName" xml:space="preserve">
+    <value>थर</value>
+  </data>
+  <data name="List" xml:space="preserve">
+    <value>सुची</value>
+  </data>
+  <data name="MiddleName" xml:space="preserve">
+    <value>बीचको नाम</value>
+  </data>
+  <data name="PMAddedBy" xml:space="preserve">
+    <value>सुची</value>
+  </data>
+  <data name="Upload" xml:space="preserve">
+    <value>अप्लोअड</value>
+  </data>
+  <data name="0" xml:space="preserve">
+    <value>०</value>
+  </data>
+  <data name="1" xml:space="preserve">
+    <value>१</value>
+  </data>
+  <data name="2" xml:space="preserve">
+    <value>२</value>
+  </data>
+  <data name="3" xml:space="preserve">
+    <value>३</value>
+  </data>
+  <data name="4" xml:space="preserve">
+    <value>४</value>
+  </data>
+  <data name="5" xml:space="preserve">
+    <value>५</value>
+  </data>
+  <data name="6" xml:space="preserve">
+    <value>६</value>
+  </data>
+  <data name="7" xml:space="preserve">
+    <value>७</value>
+  </data>
+  <data name="8" xml:space="preserve">
+    <value>८</value>
+  </data>
+  <data name="9" xml:space="preserve">
+    <value>९</value>
+  </data>
+  <data name="Name" xml:space="preserve">
+    <value>नाम </value>
+  </data>
+  <data name="CodeRequired" xml:space="preserve">
+    <value>कोड आवश्यक छ?</value>
+  </data>
+  <data name="TitleEnRequired" xml:space="preserve">
+    <value>शीर्षक आवश्यक छ</value>
+  </data>
+  <data name="Action" xml:space="preserve">
+    <value>कार्य</value>
+  </data>
+  <data name="Clear" xml:space="preserve">
+    <value>मेटाउनु होस् </value>
+  </data>
+  <data name="Code" xml:space="preserve">
+    <value>कोड</value>
+  </data>
+  <data name="DateEn" xml:space="preserve">
+    <value>मिति अंग्रेजी</value>
+  </data>
+  <data name="DateNp" xml:space="preserve">
+    <value>मिति</value>
+  </data>
+  <data name="FirstReceivedDate" xml:space="preserve">
+    <value>शुरु प्राप्त मिति</value>
+  </data>
+  <data name="GoodReceive" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन</value>
+  </data>
+  <data name="HeadCode" xml:space="preserve">
+    <value>हेड कोड</value>
+  </data>
+  <data name="Issue" xml:space="preserve">
+    <value>हस्तान्तरण</value>
+  </data>
+  <data name="IssueDate" xml:space="preserve">
+    <value>निर्णय मिति</value>
+  </data>
+  <data name="IssueDetails" xml:space="preserve">
+    <value>हस्तान्तरण  सम्बन्धी बिबरण</value>
+  </data>
+  <data name="IssueNo" xml:space="preserve">
+    <value>हस्तान्तरण फाराम नं.</value>
+  </data>
+  <data name="ItemDescription" xml:space="preserve">
+    <value>सामानको बिबरण</value>
+  </data>
+  <data name="ItemName" xml:space="preserve">
+    <value>सामानको नाम</value>
+  </data>
+  <data name="JinsiKhataNo" xml:space="preserve">
+    <value>जिन्सी खाता नम्बर</value>
+  </data>
+  <data name="JinsiKhatha52" xml:space="preserve">
+    <value>जिन्सी खाता ५२</value>
+  </data>
+  <data name="OrganizationAddress" xml:space="preserve">
+    <value>कार्यालयको  ठेगाना</value>
+  </data>
+  <data name="OrganizationDetails" xml:space="preserve">
+    <value>कार्यालय सम्बन्धी बिबरण</value>
+  </data>
+  <data name="OrganizationName" xml:space="preserve">
+    <value>कार्यालयको नाम</value>
+  </data>
+  <data name="Price" xml:space="preserve">
+    <value>d"No</value>
+  </data>
+  <data name="PurchaseOrder" xml:space="preserve">
+    <value>खरिद आदेश</value>
+  </data>
+  <data name="Quantity" xml:space="preserve">
+    <value>परिमाण</value>
+  </data>
+  <data name="ReceivedName" xml:space="preserve">
+    <value>बुझिलिनेको नाम</value>
+  </data>
+  <data name="ReceivedPosition" xml:space="preserve">
+    <value>बुझिलिनेको पद</value>
+  </data>
+  <data name="Remarks" xml:space="preserve">
+    <value>स्पेशिफिकेसन</value>
+  </data>
+  <data name="RequisitionForm" xml:space="preserve">
+    <value>माग फाराम</value>
+  </data>
+  <data name="Save" xml:space="preserve">
+    <value>सुरक्षित गर्नुहोस्</value>
+  </data>
+  <data name="Search" xml:space="preserve">
+    <value>खोजी गर्नुहोस्</value>
+  </data>
+  <data name="SN" xml:space="preserve">
+    <value>क्र. सं.</value>
+  </data>
+  <data name="Unit" xml:space="preserve">
+    <value>इकाई</value>
+  </data>
+  <data name="Export-Excel" xml:space="preserve">
+    <value>फाहिल हाल्नुहोस्</value>
+  </data>
+  <data name="Import-Excel" xml:space="preserve">
+    <value>फाहिल  तान्नुहोस्</value>
+  </data>
+  <data name="Print" xml:space="preserve">
+    <value>a</value>
+  </data>
+  <data name="Group" xml:space="preserve">
+    <value>समूह</value>
+  </data>
+  <data name="Item" xml:space="preserve">
+    <value>सामान</value>
+  </data>
+  <data name="JinsiPageNo" xml:space="preserve">
+    <value>जिन्सी पाना नं.</value>
+  </data>
+  <data name="Specification" xml:space="preserve">
+    <value>स्पेसीफिकेसन</value>
+  </data>
+  <data name="GoodReceiveNo" xml:space="preserve">
+    <value>दाखिला नंम्बर  </value>
+  </data>
+  <data name="PurchaseOrderNumber" xml:space="preserve">
+    <value>खरिद आदेश नम्बर </value>
+  </data>
+  <data name="Date" xml:space="preserve">
+    <value>ldlt</value>
+  </data>
+  <data name="BillNo" xml:space="preserve">
+    <value>बिल  नं. </value>
+  </data>
+  <data name="DiscountperOnReceicedType" xml:space="preserve">
+    <value>छुट प्र. श. दाखिला किसिम </value>
+  </data>
+  <data name="VendorName" xml:space="preserve">
+    <value>बिक्रेता नाम</value>
+  </data>
+  <data name="EnglishDate" xml:space="preserve">
+    <value>मिति(इ.सं.)</value>
+  </data>
+  <data name="JinsiAccount" xml:space="preserve">
+    <value>जिन्सी खाता  </value>
+  </data>
+  <data name="TaxPerUnit" xml:space="preserve">
+    <value>मु.अ.कर प्रति इकाई </value>
+  </data>
+  <data name="TotalPerUnit" xml:space="preserve">
+    <value>प्रति एकाई जम्मा</value>
+  </data>
+  <data name="OtherExpenses" xml:space="preserve">
+    <value>अन्य खर्च </value>
+  </data>
+  <data name="TotalPrice" xml:space="preserve">
+    <value>जम्मा मुल्य </value>
+  </data>
+  <data name="PurchaseorderedDate" xml:space="preserve">
+    <value>खरिद आदेश मिति</value>
+  </data>
+  <data name="DemandForm" xml:space="preserve">
+    <value>माग फारम</value>
+  </data>
+  <data name="ExtractFormNumber" xml:space="preserve">
+    <value>निकासा फारम नं</value>
+  </data>
+  <data name="EmployeeName/Code" xml:space="preserve">
+    <value>कर्मचारी नाम/कोड</value>
+  </data>
+  <data name="AccountNumber" xml:space="preserve">
+    <value>खाता नंम्बर.</value>
+  </data>
+  <data name="DemandQuantity" xml:space="preserve">
+    <value>माग गरेको परिमाण   </value>
+  </data>
+  <data name="ExtractQuantity" xml:space="preserve">
+    <value>निकासा परिमाण </value>
+  </data>
+  <data name="AddCode" xml:space="preserve">
+    <value>कोड थप्ने </value>
+  </data>
+  <data name="DepartmentName" xml:space="preserve">
+    <value>शाखा/ कार्यलयको नाम</value>
+  </data>
+  <data name="Sponsor" xml:space="preserve">
+    <value>प्रयोजन </value>
+  </data>
+  <data name="AddOther" xml:space="preserve">
+    <value>अरु थप्ने</value>
+  </data>
+  <data name="Completed" xml:space="preserve">
+    <value>पुरा भयो </value>
+  </data>
+  <data name="ExtractNumber" xml:space="preserve">
+    <value>निकासा नंम्बर</value>
+  </data>
+  <data name="DakhilaNikasiNo" xml:space="preserve">
+    <value>दाखिला निकासी नं</value>
+  </data>
+  <data name="Expenditure" xml:space="preserve">
+    <value>खर्च</value>
+  </data>
+  <data name="Income" xml:space="preserve">
+    <value>आम्दानी</value>
+  </data>
+  <data name="Position" xml:space="preserve">
+    <value>पद</value>
+  </data>
+  <data name="Rate" xml:space="preserve">
+    <value>दर</value>
+  </data>
+  <data name="Remaining" xml:space="preserve">
+    <value>बाकीं</value>
+  </data>
+  <data name="DateFrom" xml:space="preserve">
+    <value>अघिल्लो मिती</value>
+  </data>
+  <data name="DateTo" xml:space="preserve">
+    <value>पछिल्लो मिती</value>
+  </data>
+  <data name="GoodsName" xml:space="preserve">
+    <value>सामान नाम </value>
+  </data>
+  <data name="JinsiAccountNo" xml:space="preserve">
+    <value>जिन्सी खाता नं.</value>
+  </data>
+  <data name="Discount" xml:space="preserve">
+    <value>छूट</value>
+  </data>
+  <data name="GoodReceiveDate" xml:space="preserve">
+    <value>खरिद आदेस मिती</value>
+  </data>
+  <data name="GoodReceiveForm" xml:space="preserve">
+    <value>दाखिला प्रतिबेदन फारम </value>
+  </data>
+  <data name="PurchaseOrderDateFrom" xml:space="preserve">
+    <value>अघिल्लो खरिद आदेश मिति</value>
+  </data>
+  <data name="PurchaseOrderDateTo" xml:space="preserve">
+    <value>पछिल्लो खरिद आदेश  मिति</value>
+  </data>
+  <data name="PurchaseOrderNo" xml:space="preserve">
+    <value>खरिद आदेश नं.</value>
+  </data>
+  <data name="ReceiveNo" xml:space="preserve">
+    <value>दाखिला नं.</value>
+  </data>
+  <data name="Vendor" xml:space="preserve">
+    <value>बिक्रेता</value>
+  </data>
+  <data name="Date(AD)" xml:space="preserve">
+    <value>मिति(इ.सं.)</value>
+  </data>
+  <data name="Date(BS)" xml:space="preserve">
+    <value>मिति(वि.सं.)</value>
+  </data>
+  <data name="JinsiPanaNo" xml:space="preserve">
+    <value>जिन्सी पाना नं.</value>
+  </data>
+  <data name="NoDataToShow" xml:space="preserve">
+    <value>डाटा भेटिएन...</value>
+  </data>
+  <data name="ReceivedBy" xml:space="preserve">
+    <value>प्राप्त गर्ने</value>
+  </data>
+  <data name="SearchForData" xml:space="preserve">
+    <value>डाटाको लागि खोज गर्नुहोस...</value>
+  </data>
+  <data name="SubmitDate" xml:space="preserve">
+    <value>पेश गरेको मिति</value>
+  </data>
+  <data name="Total" xml:space="preserve">
+    <value>कुल</value>
+  </data>
+  <data name="UniqueNo" xml:space="preserve">
+    <value>युनिक नं.</value>
+  </data>
+  <data name="PanNumber" xml:space="preserve">
+    <value>प्यान नं.</value>
+  </data>
+  <data name="SubmitPlace" xml:space="preserve">
+    <value>पेश गरेको स्थान</value>
+  </data>
+  <data name="Description" xml:space="preserve">
+    <value>विवरण</value>
+  </data>
+  <data name="AverageMileOf1LitrePetrol" xml:space="preserve">
+    <value>1 ung k]^«f]nsf] ;/b/ dfOn</value>
+  </data>
+  <data name="ChasisNumber" xml:space="preserve">
+    <value>Roflz; gDa/</value>
+  </data>
+  <data name="DartaNumber" xml:space="preserve">
+    <value>btf{ gDa/</value>
+  </data>
+  <data name="DescriptionOfChangedItems" xml:space="preserve">
+    <value>km]l/Psf] k'/fgf ;dfg ljj/)f</value>
+  </data>
+  <data name="DescriptionOfMaintenaneAndPrice" xml:space="preserve">
+    <value>dd{t u/]sf] ljj/)f tyf df]n</value>
+  </data>
+  <data name="EngineNo" xml:space="preserve">
+    <value>OlGhg gDa/</value>
+  </data>
+  <data name="FY" xml:space="preserve">
+    <value>cf=j=</value>
+  </data>
+  <data name="ModelNumber" xml:space="preserve">
+    <value>df]*]n</value>
+  </data>
+  <data name="Month" xml:space="preserve">
+    <value>dlxgf</value>
+  </data>
+  <data name="OtherDescriptions" xml:space="preserve">
+    <value>cGo ljj/)f</value>
+  </data>
+  <data name="RegistrationNumber" xml:space="preserve">
+    <value>/]lh:^«]zg gDa/</value>
+  </data>
+  <data name="SignatureOfOfficeHead" xml:space="preserve">
+    <value>clkm; k|d'vsf] b:tvt</value>
+  </data>
+  <data name="TotalMileCovered" xml:space="preserve">
+    <value>hDdf rn]sf] dOn</value>
+  </data>
+  <data name="Type" xml:space="preserve">
+    <value>lsl;d</value>
+  </data>
+  <data name="VechicalAccessoriesPriceAndQuantity" xml:space="preserve">
+    <value>k]^«f]n df]ljn u|Lh cflbsf] df]n tyf kl/df)f</value>
+  </data>
+  <data name="VehicalWeight" xml:space="preserve">
+    <value>सवारीको वजन</value>
+  </data>
+  <data name="EmployeeName" xml:space="preserve">
+    <value>कर्मचारीको नाम</value>
+  </data>
+  <data name="BankAccountNo" xml:space="preserve">
+    <value>बैंक खाता नं.</value>
+  </data>
+  <data name="Category" xml:space="preserve">
+    <value>वर्ग</value>
+  </data>
+  <data name="ContactPerson" xml:space="preserve">
+    <value>सम्पर्क व्यक्ति</value>
+  </data>
+  <data name="Email" xml:space="preserve">
+    <value>ईमेल</value>
+  </data>
+  <data name="IsExpendable" xml:space="preserve">
+    <value>खर्च गर्न सकिन्छ</value>
+  </data>
+  <data name="ItemCategory" xml:space="preserve">
+    <value>सामानको बर्ग</value>
+  </data>
+  <data name="ItemUnit" xml:space="preserve">
+    <value>सामानको इकाई</value>
+  </data>
+  <data name="JinsiCode" xml:space="preserve">
+    <value>जिन्सीकोड</value>
+  </data>
+  <data name="MinimumStockLevel" xml:space="preserve">
+    <value>न्यूनतम स्टकमात्रा</value>
+  </data>
+  <data name="Mobile" xml:space="preserve">
+    <value>मोवाइल</value>
+  </data>
+  <data name="Phone" xml:space="preserve">
+    <value>फोन</value>
+  </data>
+  <data name="ShortName" xml:space="preserve">
+    <value>छोटो नाम</value>
+  </data>
+  <data name="VATNo" xml:space="preserve">
+    <value>भ्याट नं.</value>
+  </data>
+  <data name="CurrentPost" xml:space="preserve">
+    <value>अहिलोको पद</value>
+  </data>
+  <data name="CurrentPostId" xml:space="preserve">
+    <value>अहिलेको पद</value>
+  </data>
+  <data name="EndDate(AD)" xml:space="preserve">
+    <value>अन्तिम मिति(इ.सं.)</value>
+  </data>
+  <data name="EndDate(BS)" xml:space="preserve">
+    <value>अन्तिम मिति(वि.सं.)</value>
+  </data>
+  <data name="FiscalYear(AD)" xml:space="preserve">
+    <value>आर्थिक वर्ष(इ.स)</value>
+  </data>
+  <data name="FiscalYear(BS)" xml:space="preserve">
+    <value>आर्थिक वर्ष(वि.स)</value>
+  </data>
+  <data name="FullName" xml:space="preserve">
+    <value>पुरा नाम </value>
+  </data>
+  <data name="IsActive" xml:space="preserve">
+    <value>सक्रिय छ</value>
+  </data>
+  <data name="PreviousPostId" xml:space="preserve">
+    <value>पहिलाको पद</value>
+  </data>
+  <data name="StartDate(AD)" xml:space="preserve">
+    <value>क्र. सं.</value>
+  </data>
+  <data name="StartDate(BS)" xml:space="preserve">
+    <value>सुरु मिति(वि.सं.)</value>
+  </data>
+  <data name="StateId" xml:space="preserve">
+    <value>प्रदेश</value>
+  </data>
+  <data name="VdcMunicipality" xml:space="preserve">
+    <value>गाउनगरपालिका</value>
+  </data>
+  <data name="WardNo" xml:space="preserve">
+    <value>वडा नं.</value>
+  </data>
+  <data name="CategoryName" xml:space="preserve">
+    <value>वर्गको नाम</value>
+  </data>
+  <data name="CategoryNameOL" xml:space="preserve">
+    <value>वर्गको नाम(नेपाली)</value>
+  </data>
+  <data name="CreatedBy" xml:space="preserve">
+    <value>सिर्जना गर्ने </value>
+  </data>
+  <data name="ItemCategoryId" xml:space="preserve">
+    <value>सामानको बर्ग</value>
+  </data>
+  <data name="ItemUnitId" xml:space="preserve">
+    <value>सामानको इकाई</value>
+  </data>
+  <data name="ServiceDetail" xml:space="preserve">
+    <value>सेवा विवरण</value>
+  </data>
+  <data name="Condition" xml:space="preserve">
+    <value>अवस्था</value>
+  </data>
+  <data name="ExpiryDate" xml:space="preserve">
+    <value>समाप्ति मिति</value>
+  </data>
+  <data name="QuotationNo" xml:space="preserve">
+    <value>कोटेसन नं.</value>
+  </data>
+  <data name="RequistionNo" xml:space="preserve">
+    <value>माग नं.</value>
+  </data>
+  <data name="CreatedDate" xml:space="preserve">
+    <value>सिर्जना गरेको मिति</value>
+  </data>
+  <data name="Id" xml:space="preserve">
+    <value>आइडी नं</value>
+  </data>
+  <data name="Parent" xml:space="preserve">
+    <value>प्यारेन्ट</value>
+  </data>
+  <data name="PurchaseDateEn" xml:space="preserve">
+    <value>खरिद  मिति(इ.सं.)</value>
+  </data>
+  <data name="PurchaseOrderNoRequired" xml:space="preserve">
+    <value>खरिद आदेश नं आवश्यक</value>
+  </data>
+  <data name="DivisionId" xml:space="preserve">
+    <value>शाखा/ महाशाखा</value>
+  </data>
+  <data name="Documents" xml:space="preserve">
+    <value>दस्तावेजहरु</value>
+  </data>
+  <data name="Items" xml:space="preserve">
+    <value>सामानहरु</value>
+  </data>
+  <data name="PurchasedDateNp" xml:space="preserve">
+    <value>खरिद मिति</value>
+  </data>
+  <data name="PurchaseOrderDateFromNp" xml:space="preserve">
+    <value>सुरु खरिद मिति</value>
+  </data>
+  <data name="PurchaseOrderDateToNp" xml:space="preserve">
+    <value>अन्तिम खरिद मिति</value>
+  </data>
+  <data name="ItemIsRequired" xml:space="preserve">
+    <value>समान छान्नुहोस्</value>
+  </data>
+  <data name="ItemQuantityIsRequired" xml:space="preserve">
+    <value>समानको मात्र राख्नुहोस</value>
+  </data>
+  <data name="ItemRateIsRequired" xml:space="preserve">
+    <value>समानको मूल्य राख्नुहोस</value>
+  </data>
+  <data name="InvoiceFileNameIsRequired" xml:space="preserve">
+    <value>दस्तावेजको नाम आवश्यक</value>
+  </data>
+  <data name="InvoiceFileTypeIsRequired" xml:space="preserve">
+    <value>दस्तावेजको किसिम आवश्यक</value>
+  </data>
+  <data name="InvoiceNumberIsRequired" xml:space="preserve">
+    <value>दस्तावेजको नं. आवश्यक</value>
+  </data>
+  <data name="ChasesNo" xml:space="preserve">
+    <value>च्यासिस नं.</value>
+  </data>
+  <data name="DriverName" xml:space="preserve">
+    <value>चालकको नाम</value>
+  </data>
+  <data name="ModelNo" xml:space="preserve">
+    <value>मोडेल नं.</value>
+  </data>
+  <data name="PurchaseDate" xml:space="preserve">
+    <value>खरिद मिति</value>
+  </data>
+  <data name="PurchaseDateFromNp" xml:space="preserve">
+    <value>खरिद गरेको सुरु मिति</value>
+  </data>
+  <data name="PurchaseDateToNp" xml:space="preserve">
+    <value>खरिद गरेको अन्तिम मिति</value>
+  </data>
+  <data name="PurchasePrice" xml:space="preserve">
+    <value>खरिद मूल्य</value>
+  </data>
+  <data name="RegNo" xml:space="preserve">
+    <value>रेजिस्ट्रेसन्</value>
+  </data>
+  <data name="UsedInKiloMeter" xml:space="preserve">
+    <value>सवारी गुडेको</value>
+  </data>
+  <data name="VehicleCode" xml:space="preserve">
+    <value>सवारी कोड</value>
+  </data>
+  <data name="VehicleUsedBy" xml:space="preserve">
+    <value>सवारी प्रयोग गर्ने</value>
+  </data>
+  <data name="VehicleWeightInTon" xml:space="preserve">
+    <value>;jf/Lsf] jhg</value>
+  </data>
+  <data name="Division" xml:space="preserve">
+    <value>शाखा/ महाशाखा</value>
+  </data>
+  <data name="Hcode" xml:space="preserve">
+    <value>हेड कोड</value>
+  </data>
+  <data name="OrganizationHeadDetails" xml:space="preserve">
+    <value>हेड कोड</value>
+  </data>
+  <data name="PanNo" xml:space="preserve">
+    <value>प्यान नं.</value>
+  </data>
+  <data name="PurchaseDateNp" xml:space="preserve">
+    <value>खरिद  मिति(वि.सं.)</value>
+  </data>
+  <data name="PurchaseInfo" xml:space="preserve">
+    <value>खरिद बिस्तृत</value>
+  </data>
+  <data name="VehicleId" xml:space="preserve">
+    <value>गाडी आइडी</value>
+  </data>
+  <data name="VehiclePurchaseOrderDetails" xml:space="preserve">
+    <value>गाडी खरिद आदेश</value>
+  </data>
+  <data name="VehiclePurchaseOrderItemsDetails" xml:space="preserve">
+    <value>गाडी समान खरिद आदेश</value>
+  </data>
+  <data name="VendorAddress" xml:space="preserve">
+    <value>बिक्रेता ठेगाना</value>
+  </data>
+  <data name="Cancel" xml:space="preserve">
+    <value>रद्द गर्नुहोस्</value>
+  </data>
+  <data name="GoodReceiveDateEn" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन मिति(इ.सं)</value>
+  </data>
+  <data name="VendorId" xml:space="preserve">
+    <value>बिक्रेता नाम</value>
+  </data>
+  <data name="FromGoodReceiveDateNp" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन मिति(देखि)</value>
+  </data>
+  <data name="GoodReceiveDateNp" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन मिति(वि.स)</value>
+  </data>
+  <data name="ToGoodReceiveDateNp" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन मिति(सम्म)</value>
+  </data>
+  <data name="VAT" xml:space="preserve">
+    <value>भ्याट</value>
+  </data>
+  <data name="Update" xml:space="preserve">
+    <value>परिवर्तन</value>
+  </data>
+  <data name="VehicleMaintenancePurchaseOrder" xml:space="preserve">
+    <value>खरिद आदेस नं.</value>
+  </data>
+  <data name="VehicleMaintenanceGoodReceiveDetails" xml:space="preserve">
+    <value>गाडी दाखिला प्रतिवेदन विवरण</value>
+  </data>
+  <data name="VehicleMaintenanceGoodReceiveItemsDetails" xml:space="preserve">
+    <value>गाडी समान दाखिला प्रतिवेदन विवरण</value>
+  </data>
+  <data name="GoodReceiveId" xml:space="preserve">
+    <value>दाखिला आइडी</value>
+  </data>
+  <data name="GoodReceiveInfo" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन बिबरण</value>
+  </data>
+  <data name="TotalAmount" xml:space="preserve">
+    <value>जम्मा रकम</value>
+  </data>
+  <data name="File" xml:space="preserve">
+    <value>फाइल</value>
+  </data>
+  <data name="InvoiceFileName" xml:space="preserve">
+    <value>दस्तावेजको नाम</value>
+  </data>
+  <data name="InvoiceFileType" xml:space="preserve">
+    <value>दस्तावेजको किसिम</value>
+  </data>
+  <data name="InvoiceNumber" xml:space="preserve">
+    <value>दस्तावेज नं</value>
+  </data>
+  <data name="ItemInfo" xml:space="preserve">
+    <value>समानको विवरण</value>
+  </data>
+  <data name="PurchaseOrderDetails" xml:space="preserve">
+    <value>खरिद आदेश विवरण</value>
+  </data>
+  <data name="PurchaseOrderItemsDetails" xml:space="preserve">
+    <value>खरिद आदेश समान</value>
+  </data>
+  <data name="GoodReceiveDetails" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन विवरण</value>
+  </data>
+  <data name="GoodReceiveItems" xml:space="preserve">
+    <value>समान दाखिला  विवरण</value>
+  </data>
+  <data name="DistanceCovered" xml:space="preserve">
+    <value>गुडेको दुरी</value>
+  </data>
+  <data name="FuelUsed" xml:space="preserve">
+    <value>आयल प्रयोग</value>
+  </data>
+  <data name="GCode" xml:space="preserve">
+    <value>गाडीको कोड</value>
+  </data>
+  <data name="VehicleUserBy" xml:space="preserve">
+    <value>सवारी प्रयोगकर्ता</value>
+  </data>
+  <data name="FileName" xml:space="preserve">
+    <value>फाइलको नाम</value>
+  </data>
+  <data name="FileType" xml:space="preserve">
+    <value>फाइलको किसिम</value>
+  </data>
+  <data name="DocumentDetails" xml:space="preserve">
+    <value>फाइलको विवरण</value>
+  </data>
+  <data name="DocumentName" xml:space="preserve">
+    <value>फाइलको नाम</value>
+  </data>
+  <data name="DocumentType" xml:space="preserve">
+    <value>फाइलको किसिम</value>
+  </data>
+  <data name="EndDateADRequired" xml:space="preserve">
+    <value>अन्तिम मिति(इ.सं.) आवश्यक</value>
+  </data>
+  <data name="EndDateOLRequired" xml:space="preserve">
+    <value>अन्तिम मिति(वि.सं) आवश्यक</value>
+  </data>
+  <data name="FiscalYearEnRequired" xml:space="preserve">
+    <value>आर्थिक वर्ष (अंग्रेजी) आवश्यक</value>
+  </data>
+  <data name="FiscalYearOLRequired" xml:space="preserve">
+    <value>आर्थिक वर्ष(नेपाली) आवश्यक</value>
+  </data>
+  <data name="StartDateADRequired" xml:space="preserve">
+    <value>सुरु मिति(इ.सं.) आवश्यक</value>
+  </data>
+  <data name="StartDateOLRequired" xml:space="preserve">
+    <value>सुरु मिति(वि.सं) आवश्यक</value>
+  </data>
+  <data name="AddNew" xml:space="preserve">
+    <value>थप गर्नुहोस् </value>
+  </data>
+  <data name="Confirm" xml:space="preserve">
+    <value>पुष्टि गर्नुहोस्</value>
+  </data>
+  <data name="VATAmount" xml:space="preserve">
+    <value>भ्याट रकम</value>
+  </data>
+  <data name="VATPercentage" xml:space="preserve">
+    <value>भ्याट(%)</value>
+  </data>
+  <data name="EstimateCost" xml:space="preserve">
+    <value>अनुमानित लागत</value>
+  </data>
+  <data name="EstimatedDateNp" xml:space="preserve">
+    <value>अनुमानित मिति(वि.स)</value>
+  </data>
+  <data name="MaintenanceCompleteDate" xml:space="preserve">
+    <value>मर्मत सम्पन मिति(वि.सं.)</value>
+  </data>
+  <data name="VehicleMaintenanceDetails" xml:space="preserve">
+    <value>सवारी मर्मत विस्तृत</value>
+  </data>
+  <data name="VehicleMaintenancePurchaseInfo" xml:space="preserve">
+    <value>सवारी खरिद मर्मत बिबरण</value>
+  </data>
+  <data name="VehicleUsedKm" xml:space="preserve">
+    <value>सवारी गुडेको(कि.मि.)</value>
+  </data>
+  <data name="EmployeeId" xml:space="preserve">
+    <value>कर्मचारीको नाम</value>
+  </data>
+  <data name="PostId" xml:space="preserve">
+    <value>पद</value>
+  </data>
+  <data name="ConvertConfirm" xml:space="preserve">
+    <value>रूपान्तरण  गर्नुहोस्</value>
+  </data>
+  <data name="ConvertToGoodReceive" xml:space="preserve">
+    <value>दखिलामा रूपान्तरण</value>
+  </data>
+  <data name="JinsiKhata" xml:space="preserve">
+    <value>जिन्सी खाता</value>
+  </data>
+  <data name="PurchaseOrderGoodReceive" xml:space="preserve">
+    <value>दाखिला प्रतिवेदन</value>
+  </data>
+  <data name="Dispatch" xml:space="preserve">
+    <value>माग फारम </value>
+  </data>
+  <data name="DateNep" xml:space="preserve">
+    <value>मिति</value>
+  </data>
+  <data name="Demandedquantity" xml:space="preserve">
+    <value>माग परिमाण</value>
+  </data>
+  <data name="DispatchNo" xml:space="preserve">
+    <value>निकासा नं.</value>
+  </data>
+  <data name="DispatchQuantity" xml:space="preserve">
+    <value>निकासा परिमाण</value>
+  </data>
+  <data name="ItemId" xml:space="preserve">
+    <value>सामानको नाम</value>
+  </data>
+  <data name="StockItem" xml:space="preserve">
+    <value>सामानको नाम</value>
+  </data>
+  <data name="Country" xml:space="preserve">
+    <value>देश</value>
+  </data>
+  <data name="DispatchInfo" xml:space="preserve">
+    <value>माग बिस्तृत</value>
+  </data>
+  <data name="DispatchDetails" xml:space="preserve">
+    <value>निकासा विवरण</value>
+  </data>
+  <data name="DispatchDateFromNp" xml:space="preserve">
+    <value>निकासा  मिति (देखी)</value>
+  </data>
+  <data name="DispatchDateNp" xml:space="preserve">
+    <value>मिति (वि.सं.)</value>
+  </data>
+  <data name="DispatchDateToNp" xml:space="preserve">
+    <value>निकासा  मिति (सम्म )</value>
+  </data>
+  <data name="Employee" xml:space="preserve">
+    <value>कर्मचारी</value>
+  </data>
+  <data name="VehicleDispatchDetails" xml:space="preserve">
+    <value>सवारी निकासा विस्तृत</value>
+  </data>
+  <data name="VehicleMaintenanceDispatchDetails" xml:space="preserve">
+    <value>सवारी मर्मत निकासा विस्तृत</value>
+  </data>
+  <data name="VehicleMaintenanceDispatchItemDetails" xml:space="preserve">
+    <value>सवारी सामान निकासा विस्तृत</value>
+  </data>
+  <data name="DispatchedDateNp" xml:space="preserve">
+    <value>निकासा मिति</value>
+  </data>
+  <data name="DivisionName" xml:space="preserve">
+    <value>शाखा/ महाशाखा</value>
+  </data>
+  <data name="ItemCode" xml:space="preserve">
+    <value>सामानको कोड</value>
+  </data>
+  <data name="LastUpdateBy" xml:space="preserve">
+    <value>अन्तिम परिवर्तन गर्ने </value>
+  </data>
+  <data name="LastUpdateDate" xml:space="preserve">
+    <value>अन्तिम परिवर्तन मिति</value>
+  </data>
+  <data name="StockLevel" xml:space="preserve">
+    <value>जम्मा स्टक</value>
+  </data>
+  <data name="UnitName" xml:space="preserve">
+    <value>इकाई</value>
+  </data>
+  <data name="GeneralStock" xml:space="preserve">
+    <value>सामानको स्टक</value>
+  </data>
+  <data name="VehicleStock" xml:space="preserve">
+    <value>सवारीको स्टक </value>
+  </data>
+  <data name="PurchaseOrderDateNp" xml:space="preserve">
+    <value>खरिद मिति</value>
+  </data>
+  <data name="malepa2" xml:space="preserve">
+    <value>म.ले.प. २</value>
+  </data>
+  <data name="Caffeite" xml:space="preserve">
+    <value>कैफियत</value>
+  </data>
+  <data name="GrandTotal" xml:space="preserve">
+    <value>कुल जम्मा</value>
+  </data>
+  <data name="PostDetail" xml:space="preserve">
+    <value>पदको विवरण</value>
+  </data>
+  <data name="PostName" xml:space="preserve">
+    <value>पदको नाम</value>
+  </data>
+  <data name="Title" xml:space="preserve">
+    <value>शिर्षक</value>
+  </data>
+  <data name="TitleDetail" xml:space="preserve">
+    <value>शिर्षक विवरण</value>
+  </data>
+  <data name="VendorType" xml:space="preserve">
+    <value>बिक्रेताको किसिम</value>
+  </data>
+  <data name="malepa" xml:space="preserve">
+    <value>म.ले.प.</value>
+  </data>
+  <data name="Caffeite_R" xml:space="preserve">
+    <value>s}lkmot</value>
+    <comment>For Report PreetiFont</comment>
+  </data>
+  <data name="Code_R" xml:space="preserve">
+    <value>sf]*</value>
+  </data>
+  <data name="Description_R" xml:space="preserve">
+    <value>ljj/)f</value>
+  </data>
+  <data name="Quantity_R" xml:space="preserve">
+    <value>kl/df)f</value>
+  </data>
+  <data name="Terij" xml:space="preserve">
+    <value>तेरिज</value>
+  </data>
+  <data name="Total_R" xml:space="preserve">
+    <value>hDdf</value>
+  </data>
+  <data name="Amount_R" xml:space="preserve">
+    <value>/sd</value>
+  </data>
+  <data name="AssetClassificationSignalNum_R" xml:space="preserve">
+    <value>;DklQ jlu{s/)f ;+s]t g+Da/ </value>
+  </data>
+  <data name="Expense_R" xml:space="preserve">
+    <value>vr{</value>
+  </data>
+  <data name="GoodReceiveDispatchNo_R" xml:space="preserve">
+    <value>bflvnf÷ lgsf;f g+=</value>
+  </data>
+  <data name="Income_R" xml:space="preserve">
+    <value>cfDbfgL</value>
+  </data>
+  <data name="ItemName_R" xml:space="preserve">
+    <value>;dfgsf] gfd</value>
+  </data>
+  <data name="Rate_R" xml:space="preserve">
+    <value>b/</value>
+  </data>
+  <data name="Remaining_R" xml:space="preserve">
+    <value>aFsL</value>
+  </data>
+  <data name="Specification_R" xml:space="preserve">
+    <value>:k]l;lkms];g</value>
+  </data>
+  <data name="Unit_R" xml:space="preserve">
+    <value>OsfO{</value>
+  </data>
+  <data name="SelectAll" xml:space="preserve">
+    <value>सबै छान्नुहोस्</value>
+  </data>
+  <data name="VehicleJinsikhata" xml:space="preserve">
+    <value>जिन्सी खाता</value>
+  </data>
+</root>

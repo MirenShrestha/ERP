@@ -1,0 +1,106 @@
+﻿
+@model ERP.Core.Models.GeneralManagement.Agents
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card shadow mb-4">
+
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Create Agent</h6>
+                    </div>
+
+                    @using (Html.BeginForm("Create", "Agents", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Create", "Agents"), @class = "form-horizontal", id = "Agents-form" }))//data-resetUrl
+                    {
+                        @Html.AntiForgeryToken()
+
+                        <div class="card-body card-block">
+                            <div class="form-row">
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Name, new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Address, new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Telephone, "Contact No.", new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.Telephone, new { @class = "form-control", onkeypress = "return isNumber(event)" })
+                                    @Html.ValidationMessageFor(model => model.Telephone, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.CommissionPercentage, "Commission %", new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.CommissionPercentage, new { @class = "form-control", onkeypress = "return checkDec(event)" })
+                                    @Html.ValidationMessageFor(model => model.CommissionPercentage, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.VATPAN, "VAT/PAN", new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.VATPAN, new { @class = "form-control", onkeypress = "return checkDec(event)" })
+                                    @Html.ValidationMessageFor(model => model.VATPAN, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group">
+                                    <div class="col col-md-1">
+                                        @Html.LabelFor(model => model.IsActive, new { @class = "form-control-label" })
+                                    </div>
+                                    <div class="col-12 col-md-9">
+                                        @Html.CheckBoxFor(model => model.IsActive, new { @class = "form-control" })
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success btn-lg" type="submit" id="btn-submit">Save</button>
+                            <button class="btn btn-danger btn-lg" type="button" id="btn-clear">Clear</button>
+                        </div>
+                     }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script>
+    $('#btn-clear').on('click', function () {
+        //GlobalFunctions.ClearForm($(this))
+        document.getElementById("Agents-form").reset();
+    });
+
+    //For checking Input number int only
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+
+    //For Checking Input Number Decimal Number Only
+    function checkDec(el) {
+        var ex = /^[0-9]+\.?[0-9]*$/;
+        if (ex.test(el.value) == false) {
+            el.value = el.value.substring(0, el.value.length - 1);
+        }
+    }
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

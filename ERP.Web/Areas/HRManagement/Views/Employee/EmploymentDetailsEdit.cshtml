@@ -1,0 +1,108 @@
+﻿
+
+@model ERP.Core.Models.HRManagement.EmploymentDetails
+
+
+<div class="card mb-4">
+    <div class="card-header">Employment Details</div>
+    <div class="card-body">
+        @using (Html.BeginForm("EmploymentDetailsEdit", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return EditEmployment(this);", data_restUrl = Url.Action("EmploymentDetailsEdit", "Employee"), @class = "form-horizontal", @id = "EmploymentDetailsEdit-form" }))//data-resetUrl
+        {
+            @Html.HiddenFor(model => model.Id)
+            @Html.HiddenFor(model => model.EmployeeId)
+
+            <!-- Form Row-->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputFirstName">Department</label>
+                    @Html.DropDownListFor(model => model.DepartmentId, (SelectList)ViewBag.Department, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputFirstName">Job Title</label>
+                    @Html.DropDownListFor(model => model.JobId, (SelectList)ViewBag.Designation, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.JobId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Start Date</label>
+                    @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                    @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Shift</label>
+                    @Html.DropDownListFor(model => model.ShiftId, (SelectList)ViewBag.Shift, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.ShiftId, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                <label class="small mb-1 required" for="inputLastName">Employment Type</label>
+                @Html.DropDownListFor(model => model.EmploymentTypeId, (SelectList)ViewBag.EmploymentTypes, "--Select--", new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.EmploymentTypeId, "", new { @class = "text-danger" })
+            </div>*@
+
+            <!-- Form Row-->
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Employment Type</label>
+                    @Html.DropDownListFor(model => model.EmploymentTypeId, (SelectList)ViewBag.EmploymentTypes, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.EmploymentTypeId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Contract Expiry</label>
+                    @Html.TextBoxFor(model => model.ContractExpiry, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="input-group">
+                    <div class="input-group-prepend">
+                        <span class="input-group-text" id="inputGroupFileAddon01">Upload Contract</span>
+                    </div>
+                    <div class="custom-file col-md-10">
+                        <input type="file" class="custom-file-input" id="UploadFile" name="UploadFile"
+                               aria-describedby="inputGroupFileAddon01">
+                        <label class="custom-file-label" for="inputGroupFile01" id="lblFile">Choose file</label>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-danger btn-icon-split" type="button" id="removeFile1"><i class="fa fa-trash"> Reset</i></button>
+                    </div>
+                </div>
+            </div>
+
+            <button class="btn btn-primary" type="submit" id="btn-emp">Update</button>
+        }
+    </div>
+</div>
+
+<script>
+
+    $(document).ready(function () {
+        debugger
+        var model = @Html.Raw(Json.Encode(Model.ContractFile));
+        if (model != '') {
+            document.querySelector("#lblFile").textContent = model;// this.files[0].name;
+        }
+    });
+
+    $('#removeFile1').on('click', function (e) {
+
+        $('#UploadFile').val("");
+        document.querySelector("#lblFile").textContent = "Choose file";
+    });
+
+    document.querySelector("#UploadFile").onchange = function () {
+
+        document.querySelector("#lblFile").textContent = this.files[0].name;
+    }
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

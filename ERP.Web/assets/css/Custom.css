@@ -1,0 +1,12 @@
+﻿
+
+.sidebar .nav-item .collapse .collapse-inner .collapse-item, .sidebar .nav-item .collapsing .collapse-inner .collapse-item {
+    white-space: inherit;
+}
+
+
+
+.required:after {
+    content: " *";
+    color: red;
+}

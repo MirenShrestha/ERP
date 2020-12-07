@@ -1,0 +1,38 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("~/Views/_ViewLookupTab.cshtml")
+
+<script type="text/javascript">
+      $(document).ready(function () {
+            bindView('@Url.Action("List", "Designation")', 'list')
+            setTimeout(function () {
+                LoadTabs();
+            }, 1000);
+            function LoadTabs() {
+                bindView('@Url.Action("Create", "Designation")', 'addedit')
+            }
+    });
+
+
+        $('#templatemo-tabs a').click(function (e) {
+            var id = $(this).attr('href');
+                switch (id) {
+                    case "#list":
+                        bindView('@Url.Action("List", "Designation")', 'list')
+                        if ($('ul.nav.nav-tabs a:eq(1)').text()=="Update")
+                        {
+                             $('ul.nav.nav-tabs a:eq(1)').html('Add');
+                             bindView('@Url.Action("Create", "Designation")', 'addedit')
+                        }
+                        break;
+                    case "#addedit":
+                        bindView('@Url.Action("Create", "Designation")', 'addedit')
+                        break;
+                    default:
+                }
+        });
+</script>
+

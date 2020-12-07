@@ -1,0 +1,60 @@
+﻿
+@model ERP.Core.Models.HRManagement.Promotion
+
+<div class="form">
+    @using (Html.BeginForm("NewJob", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("NewJob", "Employee"), @class = "form-horizontal", id = "Employee-form" }))//data-resetUrl
+    {
+        @Html.AntiForgeryToken()
+
+        @Html.HiddenFor(model=>model.EmployeeId)
+    <div class="form-row">
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.DepartmentId, "Department", new { @class = "form-control-label required" })
+            @Html.DropDownListFor(model => model.DepartmentId, (SelectList)ViewBag.Department, "--Select--", new { @class = "form-control" })
+
+            @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.DesignationId, "Job Title", new { @class = "form-control-label required" })
+            @Html.DropDownListFor(model => model.DesignationId, (SelectList)ViewBag.Designation, "--Select--", new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.DesignationId, "", new { @class = "text-danger" })
+        </div>
+
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.StartDate,"Start Date", new { @class = "form-control-label required" })
+            @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control",@type="date" })
+            @Html.ValidationMessageFor(model => model.StartDate,"", new { @class = "text-danger" })
+        </div>
+        <div class="form-group col-md-6">
+            @Html.LabelFor(model => model.Salary, new { @class = "form-control-label required" })
+            @Html.TextBoxFor(model => model.Salary, new { @class = "form-control", onkeypress = "return isNumber(event)" })
+            @Html.ValidationMessageFor(model => model.Salary, "", new { @class = "text-danger" })
+        </div>
+
+    </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button class="btn btn-success btn-lg" type="submit" id="btn-submit">Save</button>
+            </div>
+        </div>
+    }
+</div>
+
+<script>
+    //For checking Input number int only
+    function isNumber(evt) {
+
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

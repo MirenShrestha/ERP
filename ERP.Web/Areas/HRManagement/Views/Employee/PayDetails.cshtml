@@ -1,0 +1,72 @@
+﻿
+@model ERP.Core.Models.HRManagement.PayDetails
+
+
+<div class="card mb-4">
+    <div class="card-header">Pay Details</div>
+    <div class="card-body">
+        @using (Html.BeginForm("PayDetails", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return CreatePayDetails(this);", data_restUrl = Url.Action("PayDetails", "Employee"), @class = "form-horizontal", @id = "PayDetails-form" }))
+        {
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputFirstName">Salary</label>
+                    @Html.TextBoxFor(model => model.BasicSalary, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.BasicSalary, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputFirstName">Over Time Rate</label>
+                    @Html.TextBoxFor(model => model.OTRate, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Ordinary Working Day</label>
+                    @Html.TextBoxFor(model => model.WorkingHR, new { @class = "form-control" })
+
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label class="small mb-1 required" for="inputOrgName">Pay Schedule</label>
+                    @*@Html.TextBoxFor(model => model.PaySchedule, new { @class = "form-control" })*@
+                    @Html.DropDownListFor(Model => Model.PaySchedule, new List<SelectListItem>
+                                             {
+                                                   new SelectListItem {Text="Daily",Value="Daily" },
+                                                   new SelectListItem {Text="Weekly",Value="Weekly" },
+                                                   new SelectListItem {Text="Monthly",Value="Monthly" },
+                                                   new SelectListItem {Text="Annually",Value="Annually" },
+                                              }, "--Select--", new { @class = "form-control" })
+                </div>
+
+            </div>
+
+            <h5 class="text-center text-uppercase font-weight-bold"> <u>bank details</u></h5>
+            <div class="form-group">
+                <label class="small mb-1 col-form-label" for="inputEmailAddress">Bank Name</label>
+                @Html.TextBoxFor(model => model.BankName, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1 col-form-label" for="inputEmailAddress">Branch Name</label>
+                @Html.TextBoxFor(model => model.BankBranch, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1 col-form-label" for="inputEmailAddress">Account Name</label>
+                @Html.TextBoxFor(model => model.AccountName, new { @class = "form-control" })
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1 col-form-label" for="inputEmailAddress">Account Number </label>
+                @Html.TextBoxFor(model => model.AccountNo, new { @class = "form-control" })
+            </div>
+
+            <button class="btn btn-primary" type="submit">Completed</button>
+        }
+    </div>
+</div>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

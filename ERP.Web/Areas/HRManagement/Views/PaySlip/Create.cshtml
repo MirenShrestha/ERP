@@ -1,0 +1,89 @@
+﻿
+@model ERP.Core.Models.HRManagement.PaySlip
+
+<div class="form">
+    <div class="card">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"> Create Pay Slip</h6>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "PaySlip", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Create", "PaySlip"), @class = "form-horizontal", id = "PaySlip-form" }))//data-resetUrl
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-row">
+                    <div class="form-group col-md-4">
+                        @Html.LabelFor(model => model.EmployeeId, "Employee", new { @class = "form-control-label required" })
+                        @Html.DropDownListFor(model => model.EmployeeId, (SelectList)ViewBag.EmployeeList, "--Select--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        @Html.LabelFor(model => model.Year, new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.Year, new { @class = "form-control", @type = "number" })
+                    </div>
+
+                    <div class="form-group col-md-2">
+                        @Html.LabelFor(model => model.Month, new { @class = "form-control-label required" })
+                        @Html.DropDownListFor(Model => Model.Month, new List<SelectListItem>
+                                                    {
+                                                          new SelectListItem {Text="January",Value="1" },
+                                                          new SelectListItem {Text="February",Value="2" },
+                                                          new SelectListItem { Text="March",Value="3"},
+                                                          new SelectListItem { Text="April",Value="4"},
+                                                          new SelectListItem { Text="May",Value="5"},
+                                                          new SelectListItem { Text="June",Value="6"},
+                                                          new SelectListItem { Text="July",Value="7"},
+                                                          new SelectListItem { Text="August",Value="8"},
+                                                          new SelectListItem { Text="September",Value="9"},
+                                                          new SelectListItem { Text="October",Value="10"},
+                                                          new SelectListItem { Text="November",Value="11"},
+                                                          new SelectListItem { Text="December",Value="12"},
+
+                                                     }, "--Select Months--", new { @class = "form-control", id = "Month" })
+                        @Html.ValidationMessageFor(model => model.Month, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-4">
+                        <br />
+                        <button type="button" class="btn btn-primary btn-lg btn-block"> GO </button>
+                    </div>
+                </div>
+
+            }
+        </div>
+
+        <br />
+        <div id="slipDetails">
+
+
+
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+    $(document).ready(function () {
+        var d = new Date();
+        var n = d.getFullYear();
+        $("#Year").val(n);
+
+        //$("#slipDetails").hide();
+        bindView('@Url.Action("slipDetails", "PaySlip")', 'slipDetails')
+
+    });
+
+
+
+
+
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+

@@ -1,0 +1,150 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{0D8AA29E-AAED-4856-A54F-CCAE93C5427D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ERP.Service</RootNamespace>
+    <AssemblyName>ERP.Service</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Web.Infrastructure, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Web.Infrastructure.1.0.0.0\lib\net40\Microsoft.Web.Infrastructure.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList, Version=1.17.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.1.17.0.0\lib\net40\PagedList.dll</HintPath>
+    </Reference>
+    <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
+      <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Helpers, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.Helpers.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc, Version=5.2.6.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Microsoft.AspNet.Mvc.5.2.3\lib\net45\System.Web.Mvc.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Mvc.Extensions, Version=1.0.9.0, Culture=neutral, PublicKeyToken=17e35335fc9f8fc8, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Web.Mvc.Extensions.Mvc.4.1.0.9\lib\net40\System.Web.Mvc.Extensions.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.Razor.3.2.6\lib\net45\System.Web.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Deployment, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Deployment.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.WebPages.Razor, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebPages.3.2.6\lib\net45\System.Web.WebPages.Razor.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\GeneralManagement\IAgentsService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IDeductionsService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IDepartmentService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IDropDownService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IEarningsService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IFiscalYearService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IOrganistaionService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IRoleManagementService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\ISettingsService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IShiftService.cs" />
+    <Compile Include="Interfaces\GeneralManagement\IWorkinPointService.cs" />
+    <Compile Include="Interfaces\HRManagement\IEmployeeService.cs" />
+    <Compile Include="Interfaces\HRManagement\ILeaveService.cs" />
+    <Compile Include="Interfaces\ICommonLibraryService.cs" />
+    <Compile Include="Interfaces\IBaseService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\ICategoryService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\ICounterSettlementService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\IDesignationService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\IPackageService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\IReportService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\IStationService.cs" />
+    <Compile Include="Interfaces\TicketingManagement\ITicketRateService.cs" />
+    <Compile Include="Interfaces\UserManagement\IRoleService.cs" />
+    <Compile Include="Interfaces\UserManagement\IUserService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\CommonLibraryService.cs" />
+    <Compile Include="Services\GeneralManagement\AgentsService.cs" />
+    <Compile Include="Services\GeneralManagement\DeductionsService.cs" />
+    <Compile Include="Services\GeneralManagement\DepartmentService.cs" />
+    <Compile Include="Services\GeneralManagement\DropDownService.cs" />
+    <Compile Include="Services\GeneralManagement\EarningsService.cs" />
+    <Compile Include="Services\GeneralManagement\FiscalYearService.cs" />
+    <Compile Include="Services\GeneralManagement\OrganisationService.cs" />
+    <Compile Include="Services\GeneralManagement\RoleManagementService.cs" />
+    <Compile Include="Services\GeneralManagement\SettingsService.cs" />
+    <Compile Include="Services\GeneralManagement\ShiftService.cs" />
+    <Compile Include="Services\GeneralManagement\WorkinPointService.cs" />
+    <Compile Include="Services\HRManagement\EmployeeService.cs" />
+    <Compile Include="Services\HRManagement\LeaveService.cs" />
+    <Compile Include="Services\TicketingManagement\CategoryService.cs" />
+    <Compile Include="Services\TicketingManagement\CounterSettlementService.cs" />
+    <Compile Include="Services\TicketingManagement\DesignationService.cs" />
+    <Compile Include="Services\TicketingManagement\PackageService.cs" />
+    <Compile Include="Services\TicketingManagement\ReportService.cs" />
+    <Compile Include="Services\TicketingManagement\StationService.cs" />
+    <Compile Include="Services\TicketingManagement\TicketRateService.cs" />
+    <Compile Include="Services\UserManagement\RoleService.cs" />
+    <Compile Include="Services\UserManagement\UserService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ERP.Core\ERP.Core.csproj">
+      <Project>{85e30390-61bd-463e-a0a2-eb5fa2f3b7c6}</Project>
+      <Name>ERP.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ERP.Data\ERP.Data.csproj">
+      <Project>{16a64e3e-6d0d-4e5f-b829-b2f6d36683f2}</Project>
+      <Name>ERP.Data</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <None Include="app.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Content\PagedList.css" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

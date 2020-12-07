@@ -1,0 +1,84 @@
+﻿
+@model ERP.Core.Models.GeneralManagement.Designation
+
+<div class="form">
+    @using (Html.BeginForm("Create", "Designation", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPostD(this);", data_restUrl = Url.Action("Create", "Designation"), @class = "form-horizontal", id = "Designation-form" }))//data-resetUrl
+     {
+        @Html.AntiForgeryToken()
+
+        <div class="form-row">
+            <div class="form-group col-md-10">
+                @Html.LabelFor(model => model.Name, new { @class = "form-control-label required" })
+                @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+
+            </div>
+
+            <div class="form-check">
+                @Html.CheckBoxFor(model => model.IsActive, new { @class = "form-control" })
+                @Html.LabelFor(model => model.IsActive, new { @class = "form-control-label" })
+
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-10">
+                <button class="btn btn-success btn-lg" type="submit" id="btn-submit">Save</button>
+                <button class="btn btn-danger btn-lg" type="button" id="btn-clear">Clear</button>
+            </div>
+        </div>
+     }
+</div>
+
+
+<script>
+
+    $('#btn-clear').on('click', function () {
+        document.getElementById("Designation-form").reset();
+    });
+
+
+    ///Ajax post method
+    function JQueryAjaxPostD(form, event) {
+
+        if ($(form).valid()) {
+            $.ajax({
+
+                type: "POST",
+                url: form.action,//
+                data: new FormData(form),
+                dataType: "json",
+                cache: false,
+                processData: false,
+                contentType: false,
+                traditional: true,
+
+                success: function (data) {
+
+                    GlobalFunctions.GetMessage(data.Message, null, data.ErrorCode, 0, null, null);
+                    if (data.Message != "UpdatedSuccessfully")
+                        document.getElementById(form.id).reset();
+
+                    return;
+                },
+
+                error: function (xhr, ajaxOptions, thrownError) {
+                    GlobalFunctions.GetMessage(thrownError, null, "1", 0, null, null);
+                    //alert(xhr.status);
+                    //alert(thrownError);
+                    return;
+                }
+            });
+        }
+        else {
+            return false;
+            //form.preventDefault();
+        }
+        return false;
+    }
+
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

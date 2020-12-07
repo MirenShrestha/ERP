@@ -1,0 +1,34 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="ComplementarySummary" targetNamespace="http://tempuri.org/ComplementarySummary.xsd" xmlns:mstns="http://tempuri.org/ComplementarySummary.xsd" xmlns="http://tempuri.org/ComplementarySummary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="ComplementarySummary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="ComplementarySummary" msprop:Generator_UserDSName="ComplementarySummary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="ComplementarySummary" msprop:Generator_TableClassName="ComplementarySummaryDataTable" msprop:Generator_TableVarName="tableComplementarySummary" msprop:Generator_TablePropName="_ComplementarySummary" msprop:Generator_RowDeletingName="ComplementarySummaryRowDeleting" msprop:Generator_RowChangingName="ComplementarySummaryRowChanging" msprop:Generator_RowEvHandlerName="ComplementarySummaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ComplementarySummaryRowDeleted" msprop:Generator_UserTableName="ComplementarySummary" msprop:Generator_RowChangedName="ComplementarySummaryRowChanged" msprop:Generator_RowEvArgName="ComplementarySummaryRowChangeEvent" msprop:Generator_RowClassName="ComplementarySummaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="bill_no" msprop:Generator_ColumnVarNameInTable="columnbill_no" msprop:Generator_ColumnPropNameInRow="bill_no" msprop:Generator_ColumnPropNameInTable="bill_noColumn" msprop:Generator_UserColumnName="bill_no" type="xs:string" minOccurs="0" />
+              <xs:element name="payment_mode" msprop:Generator_ColumnVarNameInTable="columnpayment_mode" msprop:Generator_ColumnPropNameInRow="payment_mode" msprop:Generator_ColumnPropNameInTable="payment_modeColumn" msprop:Generator_UserColumnName="payment_mode" type="xs:string" minOccurs="0" />
+              <xs:element name="taxable_amount" msprop:Generator_ColumnVarNameInTable="columntaxable_amount" msprop:Generator_ColumnPropNameInRow="taxable_amount" msprop:Generator_ColumnPropNameInTable="taxable_amountColumn" msprop:Generator_UserColumnName="taxable_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="tax_amount" msprop:Generator_ColumnVarNameInTable="columntax_amount" msprop:Generator_ColumnPropNameInRow="tax_amount" msprop:Generator_ColumnPropNameInTable="tax_amountColumn" msprop:Generator_UserColumnName="tax_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="discount_amount" msprop:Generator_ColumnVarNameInTable="columndiscount_amount" msprop:Generator_ColumnPropNameInRow="discount_amount" msprop:Generator_ColumnPropNameInTable="discount_amountColumn" msprop:Generator_UserColumnName="discount_amount" type="xs:string" minOccurs="0" />
+              <xs:element name="round_off" msprop:Generator_ColumnVarNameInTable="columnround_off" msprop:Generator_ColumnPropNameInRow="round_off" msprop:Generator_ColumnPropNameInTable="round_offColumn" msprop:Generator_UserColumnName="round_off" type="xs:string" minOccurs="0" />
+              <xs:element name="grand_total" msprop:Generator_ColumnVarNameInTable="columngrand_total" msprop:Generator_ColumnPropNameInRow="grand_total" msprop:Generator_ColumnPropNameInTable="grand_totalColumn" msprop:Generator_UserColumnName="grand_total" type="xs:string" minOccurs="0" />
+              <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
+              <xs:element name="VatPercentage" msprop:Generator_ColumnVarNameInTable="columnVatPercentage" msprop:Generator_ColumnPropNameInRow="VatPercentage" msprop:Generator_ColumnPropNameInTable="VatPercentageColumn" msprop:Generator_UserColumnName="VatPercentage" type="xs:string" minOccurs="0" />
+              <xs:element name="CreatedDate" msprop:Generator_ColumnVarNameInTable="columnCreatedDate" msprop:Generator_ColumnPropNameInRow="CreatedDate" msprop:Generator_ColumnPropNameInTable="CreatedDateColumn" msprop:Generator_UserColumnName="CreatedDate" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

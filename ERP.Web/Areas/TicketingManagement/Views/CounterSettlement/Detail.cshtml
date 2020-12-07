@@ -1,0 +1,362 @@
+﻿
+@model ERP.Core.Models.TicketingManagement.Denomination
+@{
+    string Cash = "0.00";
+    string Credit = "0.00";
+    string Card = "0.00";
+    if (Model.GraphList != null)
+    {
+        Cash = Model.GraphList.Where(a => a.PaymentMode == "Cash").Select(a => a.GrandTotal).FirstOrDefault().ToString();
+        Credit = String.Format("{0:0.00}", Model.GraphList.Where(a => a.PaymentMode == "Credit").Select(a => a.GrandTotal).FirstOrDefault().ToString());
+        Card = Model.GraphList.Where(a => a.PaymentMode == "Card").Select(a => a.GrandTotal).FirstOrDefault().ToString();
+    }
+}
+
+<style>
+    .tdseperater {
+        padding: 3px;
+        background: #2fee48;
+    }
+</style>
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+
+                <div class="card shadow mb-4">
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Counter Settlement</h6>
+                    </div>
+
+                    <div class="card-body card-block">
+                        <div class="row">
+                            <div class="col-md-6 offset-md-7">
+
+                                <div class="form-inline">
+                                    <div class="form-group">
+                                        <label for="Date">Date</label>
+                                        <input type="date" id="date" value="@DateTime.Now.ToShortDateString()" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">
+                                    </div>
+                                        
+                                    <div class="form-group">
+                                        <label for="inputPassword6">User</label>
+                                        @*<input type="date" id="date" class="form-control mx-sm-3" aria-describedby="passwordHelpInline">*@
+                                        @Html.DropDownList("UserId", ViewBag.Type as SelectList, "--Select--", new { htmlAttributes = new { @class = "form-control mx-sm-3" } })
+
+                                    </div>
+                                    <button type="button" class="btn btn-outline-danger" id="btn-search">Search</button>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <br />
+                        @using (Html.BeginForm("Settled", "CounterSettlement", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Settled", "CounterSettlement"), @class = "form-horizontal", id = "CounterSettlement-form" }))//data-resetUrl
+                        {
+                            @Html.HiddenFor(model => model.Id)
+                            @Html.AntiForgeryToken()
+
+                            <div class="row no-gutters">
+                                <div class="col-lg-6">
+                                    <table class="table table-sm">
+                                        <thead style="background: #f54848">
+                                            <tr>
+                                                <th scope="col" style="width:150px; color:white">Note</th>
+                                                <th scope="col" style="color: white">Count</th>
+                                                <th scope="col" style="color: white">Amount</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td>1000 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs1000, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl1000">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>500 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs500, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl500">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>100 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs100, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl100">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>50 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs50, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl50">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>20 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs20, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl20">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>10 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs10, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl10">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>5 X</td>
+                                                <td>@Html.TextBoxFor(model => model.Rs5, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lbl5">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Coin X</td>
+                                                <td>@Html.TextBoxFor(model => model.Coins, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lblCoin">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td>IC X</td>
+                                                <td>@Html.TextBoxFor(model => model.IC, new { @class = "form-control", onkeypress = "return isNumber(event)" })</td>
+                                                <td id="lblIC">0.00</td>
+                                            </tr>
+                                            <tr>
+                                                <td colspan="3" class="tdseperater">
+                                                </td>
+                                            </tr>
+                                        </tbody>
+                                        <tfoot>
+                                            <tr>
+                                                <th colspan="2" style="color:red">
+                                                    Total Cash :
+                                                </th>
+
+                                                <th style="color:red" id="lblTotalCash">
+                                                    0.00
+                                                </th>
+
+                                            </tr>
+                                            <tr class="border-bottom-dark">
+                                                <th colspan="2" style="color:red">
+                                                    Total Sales :
+                                                </th>
+
+                                                <th style="color:red" id="lblCashSales">
+                                                    0.00
+                                                </th>
+                                            </tr>
+                                            <tr>
+                                                <th colspan="2">
+                                                </th>
+                                                <th style="color:red" id="lblDifference">
+                                                    0.00
+                                                </th>
+                                            </tr>
+                                        </tfoot>
+                                    </table>
+                                </div>
+
+                                <div class="col-lg-6 border-left-dark">
+                                    <table class="table table-sm">
+                                        <thead class="table-danger">
+                                            <tr>
+                                                <th style="text-align: center;background: #f54848; color:white">Todays Sales Report</th>
+
+                                            </tr>
+                                        </thead>
+
+                                        <tbody style="text-align:center">
+
+                                            <tr>
+                                                <td style="font-weight:bold" id="lblCashSalesR">
+                                                    Cash Sales : 0.00
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="font-weight:bold" id="lblCardSalesR">Card Sales : 0.00</td>
+                                            </tr>
+
+                                            <tr class="border-bottom-success">
+                                                <td style="font-weight:bold" id="lblCreditSalesR">Credit Sales : 0.00</td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="font-weight:bold" id="lblGrandTotal">Grand Total : 0.00</td>
+                                            </tr>
+                                            <tr class="border-bottom-success">
+                                                <td id="lblDenoTotal" style="font-weight:bold">Denomination Total : 0.00</td>
+                                            </tr>
+                                            <tr class="border-bottom-success">
+                                                <td>Impression : @Html.DisplayFor(model => model.Impression, new { @class = "form-control" })</td>
+                                            </tr>
+                                            <tr>
+                                                <td>Settlement Request : @Html.DisplayFor(model => model.SettlementRequest, new { @class = "form-control" })</td>
+                                            </tr>
+
+                                            <tr class="border-bottom-success">
+                                                <td class="border-light">
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                @if (Model.Status == 0)
+                                                {
+                                                    <td style="font-weight:bold">
+                                                        Status :  Open
+                                                    </td>
+                                                }
+                                                else
+                                                {
+                                                    <td style="font-weight:bold">
+                                                        Status :  Close
+                                                    </td>
+                                                }
+                                            </tr>
+                                            <tr>
+                                                <td class="tdseperater">
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <div>
+                                                        <div id="graph"></div>
+
+                                                    </div>
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td style="color: white; background:#f54848">Settle Now</td>
+                                            </tr>
+                                            <tr>
+                                                <td>
+                                                    @Html.TextAreaFor(model => model.Remarks, new { @class = "form-control required" })
+                                                    @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+
+                                                </td>
+                                            </tr>
+
+                                            <tr>
+                                                <td>
+                                                    <button class="btn btn-success btn-group-xs" type="submit" id="btn-submit">Submit</button>
+                                                </td>
+                                            </tr>
+                                        </tbody>
+
+                                    </table>
+
+                                </div>
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        // Use Morris.Bar
+        Morris.Bar({
+            element: 'graph',
+            data: [
+                { x: 'CASH', y: @Cash },
+                { x: 'CARD', y: @Card },
+                { x: 'CREDIT', y: @Credit },
+            ],
+            xkey: 'x',
+            ykeys: ['y'],
+            labels: ['Total'],
+            barColors: function (row, series, type) {
+                if (type === 'bar') {
+                    var red = Math.ceil(255 * row.y / this.ymax);
+                    return 'rgb(' + red + ',0,0)';
+                }
+                else {
+                    return '#000';
+                }
+            }
+        });
+    });
+
+    //For checking Input number int only
+    function isNumber(evt) {
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+
+    $("#btn-search").click(function () {
+
+        var date = $("#date").val();
+        var user_Id = $("#UserId").val();
+        if (date.length > 0 && user_Id.length > 0) {
+            var url = '@Url.Action("GetReport", "CounterSettlement")';
+            $.ajax({
+            type: "GET",
+            url: url,
+            data: { userId: user_Id, date: date },
+            success: function (response) {
+            $("#setView").html(response);
+
+            calculation();
+            return;
+            },
+            });
+        }
+     });
+
+
+       function calculation() {
+
+          var rs1000 = $("#Rs1000").val() || 0;
+          var rs500 = $("#Rs500").val() || 0;
+          var rs100 = $("#Rs100").val() || 0;
+          var rs50 = $("#Rs50").val() || 0;
+          var rs20 = $("#Rs20").val() || 0;
+          var rs10 = $("#Rs10").val() || 0;
+          var rs5 = $("#Rs5").val() || 0;
+          var coins = $("#Coins").val() || 0;
+          var ic = $("#IC").val() || 0;
+
+          $("#lbl1000").html((rs1000 * 1000).toFixed(2));
+          $("#lbl500").html((rs500 * 500).toFixed(2));
+          $("#lbl100").html((rs100 * 100).toFixed(2));
+          $("#lbl50").html((rs50 * 50).toFixed(2));
+          $("#lbl20").html((rs20 * 20).toFixed(2));
+          $("#lbl10").html((rs10 * 10).toFixed(2));
+          $("#lbl5").html((rs5 * 5).toFixed(2));
+          $("#lblCoin").html((coins *1).toFixed(2));
+          $("#lblIC").html((ic * 1.6).toFixed(2));
+
+
+          var totalCash = (parseFloat($("#lbl1000").html()) + parseFloat($("#lbl500").html()) + parseFloat($("#lbl100").html()) + parseFloat($("#lbl50").html())
+          + parseFloat($("#lbl20").html()) + parseFloat($("#lbl10").html()) + parseFloat($("#lbl5").html()) + parseFloat($("#lblCoin").html()) + parseFloat($("#lblIC").html())).toFixed(2);
+
+              $("#lblDenoTotal").html("Denomination Total : " + totalCash);
+              $("#lblTotalCash").html(totalCash);
+              var CashSales = @Cash;
+              $("#lblCashSales").html(CashSales.toFixed(2));
+              $("#lblCashSalesR").html("Cash Sales : "+ CashSales.toFixed(2));
+
+              var creditSales = @Credit;
+              $("#lblCreditSalesR").html("Credit Sales : "+creditSales.toFixed(2));
+
+              var cardSales = @Card;
+              $("#lblCardSalesR").html("Card Sales : "+cardSales.toFixed(2));
+
+              var GrandTotal = (parseFloat(CashSales) + parseFloat(creditSales) + parseFloat(cardSales)).toFixed(2);
+
+              $("#lblGrandTotal").html("Grand Total :" + GrandTotal);
+
+              var diff = parseFloat($("#lblCashSales").html()) - parseFloat($("#lblTotalCash").html());
+              $("#lblDifference").html(diff.toFixed(2));
+
+       }
+
+</script>
+

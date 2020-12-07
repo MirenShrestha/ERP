@@ -1,0 +1,181 @@
+﻿
+@model ERP.Core.Models.HRManagement.EmployeeDetailsVM
+
+@using ERP.Common.Helper;
+
+@{
+    int cnt = 0;
+}
+
+<div class="form">
+    <div class="card">
+        @*<div class="card-header py-3">
+                <h6 class="m-0 font-weight-bold text-primary"> Employee Details</h6>
+            </div>*@
+
+        <div class="card-body">
+            @Html.AntiForgeryToken()
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.FirstName, " First Name :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.MiddleName, "Middle Name :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.LastName, "Last Name :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Gender, "Gender :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Gender, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Phone, "Phone :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Nationality, "Nationality :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Nationality, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.DOB, "Birth Date :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.DOB, "{0:yyyy/MM/dd}", new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.MaritalStatus, "Marital Status :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.MaritalStatus, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Ethnicity, "Ethnicity :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Ethnicity, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Province, "Province :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Province, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.District, "District :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.District, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Address, "Address :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.Email, "Email :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.Email, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.BasicSalary, "Basic Salary :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.BasicSalary, new { @class = "form-control", @readonly = "readonly" })
+                </div>
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.StartDate, "Joined Date :", new { @class = "form-control-label" })
+                    @Html.TextBoxFor(model => model.StartDate, "{0:yyyy/MM/dd}", new { @class = "form-control", @readonly = "readonly" })
+                </div>
+
+                <div class="form-group col-md-3">
+                    @Html.LabelFor(model => model.ContractFile, "Contract File :", new { @class = "form-control-label" })
+
+                    <a class="btn btn-danger" role="button" href="" , id="contract"
+                       download="proposed_file_name">
+                        Download
+                    </a>
+
+                </div>
+            </div>
+
+
+            <div class="col-md-12">
+            <h4>Job History </h4>
+                <div class="table-responsive">
+                    <table class="table" id="dataTable1" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <td>SN</td>
+                                <td>Department</td>
+                                <td>Designation</td>
+                                <td>Joined Date</td>
+                                <td>End Date</td>
+                                <td>Shift</td>
+                                <td>Job Type</td>
+                                <td>Salary</td>
+                                <td>O.T Rater/HR</td>
+                                <td>Pay Schedule</td>
+                                <td>Contract Expiry</td>
+                                <td>Is Current</td>
+
+
+                            </tr>
+                        </thead>
+
+                        <tbody>
+                            @if (Model.jobList != null && Model.jobList.Count > 0)
+                            {
+                                foreach (var item in Model.jobList.OrderBy(x => x.IsCurrent))
+                                {
+                            <tr>
+                                <td width="3%">@(++cnt)</td>
+                                <td>@item.Department</td>
+                                <td>@item.Designation</td>
+                                <td>@GlobalHelper.ToShortDate(item.StartDate.ToString())</td>
+                                <td>@GlobalHelper.ToShortDate(item.EndDate.ToString())</td>
+
+                                <td>@item.Shift</td>
+                                <td>@item.EmployementType</td>
+                                <td>@item.Salary</td>
+                                <td>@item.OTRate</td>
+                                <td>@item.PaySchedule</td>
+                                <td>@GlobalHelper.ToShortDate(item.ContractExpiry)</td>
+                                <td>@item.IsCurrent</td>
+                            </tr>
+                                }
+                            }
+                        </tbody>
+
+                    </table>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<script>
+    $(document).ready(function () {
+        
+        var contractPath = @Html.Raw(Json.Encode(Model.ContractFile));
+        var empName = @Html.Raw(Json.Encode(Model.FirstName));
+
+        if (contractPath != '') {
+
+            //var fullPath = '/Areas/HRManagement/Uploaded/' + contractPath;
+            $("#contract").attr("href", "/Areas/HRManagement/Uploaded/" + contractPath);
+            $('#contract').attr("download", empName + "_" + "Contract");
+        }
+        else {
+            document.getElementById("contract").style.visibility = "hidden";
+        }
+        debugger
+        $("#dataTable1").DataTable();
+
+    });
+</script>

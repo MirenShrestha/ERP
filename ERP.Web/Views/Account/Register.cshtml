@@ -1,0 +1,140 @@
+﻿@model ERP.Core.Models.UserManagement.Register
+
+
+<div class="row">
+    <div class="col-lg-12">
+        <div class="card">
+            <div class="card-body">
+                <div class="card shadow mb-4">
+
+                    <div class="card-header py-3">
+                        <h6 class="m-0 font-weight-bold text-primary">Register User</h6>
+                    </div>
+                    @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Register", "Account"), @class = "form-horizontal" }))//data-resetUrl
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="card-body card-block">
+                            <div class="form-row">
+
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.EmployeeId, "Employee", new { @class = "form-control-label" })
+                                    @Html.DropDownListFor(model => model.EmployeeId, (SelectList)ViewBag.Employee, "--Select--", new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.EmployeeId, "", new { @class = "text-danger" })
+                                </div>
+
+                                @*<div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.FirstName, new { @class = "form-control-label required" })
+
+                                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.MiddleName, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.LastName, new { @class = "form-control-label required" })
+                                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                                </div>
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Gender, new { @class = "form-control-label required" })
+                                    @Html.DropDownListFor(Model => Model.Gender, new List<SelectListItem>
+                                                                     {
+                                                                           new SelectListItem {Text="Male",Value="Male" },
+                                                                           new SelectListItem {Text="Female",Value="Female" },
+                                                                           new SelectListItem { Text="Others",Value="Others"},
+                                                                      }, "--Select--", new { @class = "form-control", id = "type" })
+                                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.District, new { @class = "form-control-label" })
+                                    @Html.DropDownListFor(model => model.District, (SelectList)ViewBag.District, "--Select--", new { @class = "form-control" })
+
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.City, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.City, new { @class = "form-control" })
+                                </div>
+
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.WardNo, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.WardNo, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Phone, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control" })
+                                </div>
+                                <div class="form-group col-md-3">
+                                    @Html.LabelFor(model => model.Mobile, new { @class = "form-control-label" })
+                                    @Html.TextBoxFor(model => model.Mobile, new { @class = "form-control" })
+                                    @Html.ValidationMessageFor(model => model.Mobile, "", new { @class = "text-danger" })
+                                </div>*@
+
+
+                            </div>
+
+                            <fieldset class="border p-2 col-lg-12">
+                                <legend class="w-auto">
+                                    Login Credentials
+                                </legend>
+                                <div class=" form-row ">
+                                    <div class="form-group col-md-3">
+                                        @Html.LabelFor(model => model.UserName,"User Name", new { @class = "form-control-label required" })
+                                        @Html.TextBoxFor(model => model.UserName, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        @Html.LabelFor(model => model.RoleId,"Role", new { @class = "form-control-label required" })
+                                        @Html.DropDownListFor(model => model.RoleId, (SelectList)ViewBag.Roles, "--Select--", new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.RoleId, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        @Html.LabelFor(model => model.Email, new { @class = "form-control-label" })
+                                        @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                                    </div>
+                                    
+                                    <div class="form-group col-md-3">
+                                        @Html.LabelFor(model => model.Password, new { @class = "form-control-label required" })
+                                        @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type="password" })
+                                        @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                                    </div>
+
+                                    <div class="form-group col-md-3">
+                                        @Html.LabelFor(model => model.ConfirmPassword, new { @class = "form-control-label required" })
+                                        @Html.PasswordFor(model => model.ConfirmPassword, new { @class = "form-control" })
+                                        @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                                    </div>
+                                </div>
+
+                            </fieldset>
+                        </div>
+                        <div class="card-footer">
+                            <button class="btn btn-success btn-lg" type="submit" id="btn-submit">Save</button>
+                            <button class="btn btn-danger btn-lg" type="button" id="btn-clear">Clear</button>
+                        </div>
+                     }
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script>
+    $('#btn-clear').on('click', function () {
+        GlobalFunctions.ClearForm($(this))
+    });
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>

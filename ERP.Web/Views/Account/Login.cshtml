@@ -1,0 +1,109 @@
+﻿@using ERP.Web.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+    Layout = null;
+}
+<!doctype html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700,800,900" rel="stylesheet">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    @*<link rel="stylesheet" href="/assets/newCss/custom.css">*@
+    <title>Sofwena | Login</title>
+</head>
+<body background="~/assets/img/bg-3.png.jpg">
+    <div id="wrapper" style="padding: 90px 0px;">
+        <div class="container">
+            <div class="row">
+                <div class="col-12 text-right mt-3">
+                    <a href="#" data-toggle="modal" data-target="#modalLanguage">
+                    </a>
+                </div>
+                <div class="col-md-4 offset-md-4 offset-xs-1 col-xs-10">
+                    @*<h2>--------  Login --------</h2>*@
+                    @*<h1>Login </h1>*@
+                    <div style="text-align:center">
+                        <h4>Sign In</h4>
+                        <div class="text-muted font-weight-bold">Enter your details to login to your account</div>
+                    </div>
+                    <div style="text-align:center">
+                        @if (Convert.ToString(ViewBag.result) == "Failure")
+                        {
+                            <span style="color:red" class="error-signup">Invalid Username/Password</span>
+                        }
+                    </div>
+                    <!-- FORM START -->
+                    @using (Html.BeginForm("Login", "Account", new { Area = "", ReturnUrl = Request.QueryString["ReturnUrl"] }, FormMethod.Post, new { @class = "user", role = "form" }))
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="form-group">
+                            @*<input type="email" class="form-control form-control-user" id="exampleInputEmail" aria-describedby="emailHelp" placeholder="Enter Email Address...">*@
+                            @Html.TextBoxFor(m => m.UserName, new { @class = "form-control form-control-user", placeholder = "Enter Email Address...", autocomplete = "off" })
+                        </div>
+                        <div class="form-group">
+                            @*<input type="password" class="form-control form-control-user" id="exampleInputPassword" placeholder="Password">*@
+                            @Html.PasswordFor(m => m.Password, new { @class = "form-control form-control-user", placeholder = "Password", @id = "formGroupExampleInput2", autocomplete = "off" })
+                        </div>
+                        <div class="form-group" style="text-align:center">
+                            <input type="checkbox" onclick="pswdHideShow()"> Show Password
+                            <div>
+                                @Html.CheckBoxFor(model => model.RememberMe)
+                                @Html.LabelFor(model => model.RememberMe)
+                            </div>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-user btn-block">Login</button>
+                    }
+                    <hr />
+                    <!-- FORM END -->
+                    <div style="text-align:center">
+                        <img src="~/assets/img/sofwena.png" width="50%" />
+                    </div>
+                    <br />
+                    <div style="text-align:center">
+                        <p>©2017 All Rights Reserved. Sofwena Pvt.Ltd</p>
+                        <p><a href="#">Privacy and Terms</a></p>
+                    </div>
+                </div>
+            </div>
+        </div> <!-- container end -->
+    </div>
+</body>
+</html>
+<script src="/assets/newJs/jquery.min.js"></script>
+<script src="/assets/newJs/popper.js"></script>
+<script src="/assets/newJs/bootstrap.min.js"></script>
+<script src="/assets/newJs/main.js"></script>
+<script src="/assets/newJs/form-validator.js"></script>
+<script>
+    function pswdHideShow() {
+        var getId = document.getElementById("formGroupExampleInput2");
+        if (getId.type === "password") {
+            getId.type = "text";
+        } else {
+            getId.type = "password";
+        }
+    }
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

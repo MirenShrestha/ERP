@@ -1,0 +1,111 @@
+﻿
+
+@model ERP.Core.Models.HRManagement.LeaveApplication
+
+<div class="form">
+    <div class="card">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"> Edit Leave Request</h6>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Edit", "LeaveApplication", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Edit", "LeaveApplication"), @class = "form-horizontal", id = "LeaveApplication-form" }))//data-resetUrl
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-row">
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.DepartmentId, "Department", new { @class = "form-control-label required" })
+                        @Html.DropDownListFor(model => model.DepartmentId, (SelectList)ViewBag.Department, "--" + "Select" + "--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.DepartmentId, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.EmpId, "Employee", new { @class = "form-control-label required" })
+                        @Html.DropDownListFor(model => model.EmpId, (SelectList)ViewBag.Employee, "--" + "Select" + "--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.EmpId, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6 ">
+                        <label class="small mb-1 required" for="inputOrgName">Leave Type</label>
+                        @Html.DropDownListFor(Model => Model.Reason, new List<SelectListItem>
+                                                   {
+                                                         new SelectListItem {Text="Personal Leave",Value="Personal Leave" },
+                                                         new SelectListItem {Text="Emergency Leave",Value="Emergency Leave" },
+                                                         new SelectListItem { Text="Sick Leave",Value="Sick Leave"},
+                                                         new SelectListItem { Text="Others",Value="Others"},
+
+                                                    }, "--Select Type--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-6 ">
+                        <label class="small mb-1 required" for="inputOrgName">Leave Category</label>
+                        @Html.DropDownListFor(Model => Model.LeaveType, new List<SelectListItem>
+                                                   {
+                                                         new SelectListItem {Text="Full Day",Value="Full Day" },
+                                                         new SelectListItem {Text="Half Day",Value="Half Day" },
+
+                                                    }, "--Select Category--", new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.LeaveType, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.StartDate, "Start Date", new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.StartDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date"})
+                        @Html.ValidationMessageFor(model => model.StartDate, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-6">
+                        @Html.LabelFor(model => model.EndDate, "End Date", new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.EndDate, "{0:yyyy-MM-dd}", new { @class = "form-control", @type = "date" })
+                        @Html.ValidationMessageFor(model => model.EndDate, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-row">
+                    <div class="form-group col-md-12 ">
+                        <label class="small mb-1 required" for="inputOrgName">Reason</label>
+                        @Html.TextAreaFor(model => model.Remarks, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Remarks, "", new { @class = "text-danger" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button class="btn btn-success btn-lg" type="submit" id="btn-update">Update</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="btn-cancel">Cancel</button>
+                    </div>
+                </div>
+
+             }
+        </div>
+    </div>
+</div>
+
+
+<script>
+
+     $('#btn-cancel').on('click', function () {
+            CancelUpdate("@Url.Action("Create", "LeaveApplication")","@Url.Action("List", "LeaveApplication")");
+     });
+
+    $(document).ready(function () {
+        BindCascadeDropdownEdit('@Url.Action("GetEmployee")', 'DepartmentId', 'EmpId');
+    });
+
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+

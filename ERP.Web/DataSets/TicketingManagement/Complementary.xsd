@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="Complementary" targetNamespace="http://tempuri.org/Complementary.xsd" xmlns:mstns="http://tempuri.org/Complementary.xsd" xmlns="http://tempuri.org/Complementary.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="Complementary" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="Complementary" msprop:Generator_UserDSName="Complementary">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="Complementary" msprop:Generator_TableClassName="ComplementaryDataTable" msprop:Generator_TableVarName="tableComplementary" msprop:Generator_TablePropName="_Complementary" msprop:Generator_RowDeletingName="ComplementaryRowDeleting" msprop:Generator_RowChangingName="ComplementaryRowChanging" msprop:Generator_RowEvHandlerName="ComplementaryRowChangeEventHandler" msprop:Generator_RowDeletedName="ComplementaryRowDeleted" msprop:Generator_UserTableName="Complementary" msprop:Generator_RowChangedName="ComplementaryRowChanged" msprop:Generator_RowEvArgName="ComplementaryRowChangeEvent" msprop:Generator_RowClassName="ComplementaryRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="grand_total" msprop:Generator_ColumnVarNameInTable="columngrand_total" msprop:Generator_ColumnPropNameInRow="grand_total" msprop:Generator_ColumnPropNameInTable="grand_totalColumn" msprop:Generator_UserColumnName="grand_total" type="xs:string" minOccurs="0" />
+              <xs:element name="remarks" msprop:Generator_ColumnVarNameInTable="columnremarks" msprop:Generator_ColumnPropNameInRow="remarks" msprop:Generator_ColumnPropNameInTable="remarksColumn" msprop:Generator_UserColumnName="remarks" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

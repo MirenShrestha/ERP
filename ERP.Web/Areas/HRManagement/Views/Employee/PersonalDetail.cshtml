@@ -1,0 +1,131 @@
+﻿
+@model ERP.Core.Models.HRManagement.EmployeeDetails
+
+<div class="card mb-4">
+    <div class="card-header">Personal Details</div>
+    <div class="card-body">
+        @using (Html.BeginForm("PersonalDetail", "Employee", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return CreateEmployee(this);", data_restUrl = Url.Action("PersonalDetail", "Employee"), @class = "form-horizontal", @id = "PersonalDetail-form" }))//data-resetUrl
+        {
+            <!-- Form Row-->
+            <div class="form-row">
+                <!-- Form Group (first name)-->
+                <div class="form-group col-md-4">
+                    <label class="small mb-1 required" for="inputFirstName">First name</label>
+                    @Html.TextBoxFor(model => model.FirstName, new { @class = "form-control", @placeholder = "Enter your first name" })
+                    @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="small mb-1" for="inputFirstName">Middle name</label>
+                    @Html.TextBoxFor(model => model.MiddleName, new { @class = "form-control", @placeholder = "Enter your middle name" })
+                </div>
+
+                <!-- Form Group (last name)-->
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputLastName">Last name</label>
+                    @Html.TextBoxFor(model => model.LastName, new { @class = "form-control", @placeholder = "Enter your last name" })
+                    @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Form Row-->
+            <div class="form-row">
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputOrgName">Gender</label>
+                    @Html.DropDownListFor(Model => Model.Gender, new List<SelectListItem>
+                                               {
+                                                     new SelectListItem {Text="Male",Value="Male" },
+                                                     new SelectListItem {Text="Female",Value="Female" },
+                                                     new SelectListItem { Text="Others",Value="Others"},
+                                                }, "--Select Gender--", new { @class = "form-control", id = "type" })
+                    @Html.ValidationMessageFor(model => model.Gender, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputPhone">Contact No.</label>
+                    @Html.TextBoxFor(model => model.Phone, new { @class = "form-control", @placeholder = "Enter your contact no", onkeypress = "return isNumber(event)" })
+                    @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger"})
+
+                </div>
+
+                <!-- Form Group (organization name)-->
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputOrgName">Nationality</label>
+                    @Html.TextBoxFor(model => model.Nationality, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Nationality, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <!-- Form Row-->
+            <div class="form-row">
+                <!-- Form Group (location)-->
+                <div class="form-group col-md-4">
+                    <label class="small mb-1" for="inputLocation">Date of Birth</label>
+                    @Html.TextBoxFor(model => model.DOB, new { @class = "form-control", @type = "date" })
+                </div>
+
+                <!-- Form Group (phone number)-->
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1" for="inputPhone">Marital Status</label>
+                    @Html.DropDownListFor(Model => Model.MaritalStatus, new List<SelectListItem>
+                                                                                      {
+                                                                                            new SelectListItem {Text="Single",Value="Single" },
+                                                                                            new SelectListItem {Text="Married",Value="Married" },
+                                                                                       }, "--Select Gender--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.MaritalStatus, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-4">
+                    <label class="small mb-1" for="inputBirthday">Ethnicity</label>
+                    @Html.TextBoxFor(model => model.Ethnicity, new { @class = "form-control" })
+                </div>
+            </div>
+
+            <div class="form-row">
+
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputPhone">State</label>
+                    @Html.DropDownListFor(model => model.StateId, (SelectList)ViewBag.Province, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.StateId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputBirthday">District</label>
+                    @Html.DropDownListFor(model => model.DistrictId, (SelectList)ViewBag.District, "--Select--", new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.DistrictId, "", new { @class = "text-danger" })
+                </div>
+
+                <div class="form-group col-md-4 ">
+                    <label class="small mb-1 required" for="inputBirthday">Address</label>
+                    @Html.TextBoxFor(model => model.Address, new { @class = "form-control" })
+                    @Html.ValidationMessageFor(model => model.Address, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="small mb-1 col-form-label" for="inputEmailAddress">Email address</label>
+                @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+            </div>
+
+            <!-- Save changes button-->
+            <button class="btn btn-primary" type="submit">Save & Next</button>
+            @*</form>*@
+        }
+    </div>
+</div>
+
+<script>
+    //For checking Input number int only
+    function isNumber(evt) {
+        
+        evt = (evt) ? evt : window.event;
+        var charCode = (evt.which) ? evt.which : evt.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+    }
+</script>
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+

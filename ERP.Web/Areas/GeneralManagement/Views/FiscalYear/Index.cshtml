@@ -1,0 +1,25 @@
+﻿
+
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@Html.Partial("~/Views/_ViewLookupCreateTab.cshtml")
+
+<script type="text/javascript">
+      $(document).ready(function () {
+          bindView('@Url.Action("Update", "FiscalYear")', 'addedit')
+    });
+
+
+        $('#templatemo-tabs a').click(function (e) {
+            var id = $(this).attr('href');
+                switch (id) {
+                    case "#addedit":
+                        bindView('@Url.Action("Update", "FiscalYear")', 'addedit')
+                        break;
+                    default:
+                }
+        });
+</script>
+

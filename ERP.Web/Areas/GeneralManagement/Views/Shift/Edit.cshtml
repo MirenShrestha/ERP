@@ -1,0 +1,67 @@
+﻿
+@model ERP.Core.Models.GeneralManagement.Shift
+
+<div class="form">
+    <div class="card">
+        <div class="card-header py-3">
+            <h6 class="m-0 font-weight-bold text-primary"> Edit Working Shift</h6>
+        </div>
+
+        <div class="card-body">
+            @using (Html.BeginForm("Edit", "Shift", FormMethod.Post, new { enctype = "multipart/form-data", onSubmit = "return JQueryAjaxPost(this);", data_restUrl = Url.Action("Edit", "Shift"), @class = "form-horizontal", id = "Shift-form" }))//data-resetUrl
+            {
+                @Html.AntiForgeryToken()
+                @Html.HiddenFor(model => model.Id)
+
+                <div class="form-row">
+                    <div class="form-group col-md-3">
+                        @Html.LabelFor(model => model.Name, new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.Name, new { @class = "form-control" })
+                        @Html.ValidationMessageFor(model => model.Name, "", new { @class = "text-danger" })
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        @Html.LabelFor(model => model.StartTime, "Start Time", new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.StartTime, new { @class = "form-control", @type = "time" })
+                        @*@Html.ValidationMessageFor(model => model.StartTime, "", new { @class = "text-danger" })*@
+
+                    </div>
+
+                    <div class="form-group col-md-3">
+                        @Html.LabelFor(model => model.EndTime, "End Time", new { @class = "form-control-label required" })
+                        @Html.TextBoxFor(model => model.EndTime, new { @class = "form-control", @type = "time" })
+                        @*@Html.ValidationMessageFor(model => model.EndTime, "", new { @class = "text-danger" })*@
+                    </div>
+
+                    <div class="form-check">
+                        @Html.CheckBoxFor(model => model.IsActive, new { @class = "form-check-input", @type = "checkbox" })
+                        @Html.LabelFor(model => model.IsActive, new { @class = "form-control-label" })
+                    </div>
+                </div>
+
+                <div class="form-group row">
+                    <div class="col-sm-10">
+                        <button class="btn btn-success btn-lg" type="submit" id="btn-update">Update</button>
+                        <button class="btn btn-danger btn-lg" type="button" id="btn-cancel">Cancel</button>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</div>
+
+
+<script>
+  $('#btn-cancel').on('click', function () {
+        CancelUpdate("@Url.Action("Create", "Shift")","@Url.Action("List", "Shift")");
+        });
+
+</script>
+
+<script src="~/Scripts/jquery.validate.min.js"></script>
+<script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+
+
+
+
+
